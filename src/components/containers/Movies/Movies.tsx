@@ -6,9 +6,10 @@ import { IMoviesState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { MovieItem } from '../../presentationals';
 import { Container, Col, Row } from '..';
+import { IFirebaseUser } from '../../../types/user';
 
 interface IOwnProps {}
-interface IConnectedProps { state: IMoviesState; }
+interface IConnectedProps { state: IMoviesState; user: IFirebaseUser; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
 
@@ -20,10 +21,13 @@ class Movies extends Component<Props> {
 
   render() {
     const { movies } = this.props.state;
+    const { user } = this.props.user;
 
     return (
       <div>
         <Container>
+          {user && <div>logged in {user.displayName}</div>}
+          {!user && <div>logged out</div>}
           <Row>
             {movies && movies.map(movie => <Col key={movie.id}><MovieItem movie={movie} /></Col>)}
           </Row>
@@ -36,6 +40,7 @@ class Movies extends Component<Props> {
 export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRootState>(
   (state: IRootState) => ({
     state: state.MoviesReducer,
+    user: state.UserReducer,
   }),
   (dispatch: Dispatch) => ({
     onLoadData: () => dispatch(loadData()),

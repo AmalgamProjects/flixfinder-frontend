@@ -1,6 +1,5 @@
-// import axios from 'axios';
-// import settings from '../settings';
 import { IMovie } from '../types/movie';
+import { getAuthData } from '../helpers/auth';
 
 export interface IFetchMoviesResponse {
   movies: IMovie[];
@@ -11,6 +10,8 @@ export interface IFetchMoviesParams {}
 export interface IFetchMovies {
   (params: IFetchMoviesParams): Promise<IFetchMoviesResponse | null>;
 }
+
+const accessToken = getAuthData()?.accessToken;
 
 const fetchMovies = (params: IFetchMoviesParams) => {
   const promise = new Promise<IFetchMoviesResponse>(resolve => {
@@ -30,6 +31,8 @@ const fetchMovies = (params: IFetchMoviesParams) => {
     }, 200);
   });
 
+  console.log('accessToken', accessToken);
+
   return promise;
 
   /* return axios
@@ -37,8 +40,11 @@ const fetchMovies = (params: IFetchMoviesParams) => {
       {
         baseURL: settings.apiUrl,
         method: 'GET',
+        headers: {
+          ...accessToken && { Authorization: `Bearer ${accessToken}` },
+        },
         // params,
-        // url: '/fetchMovies',
+        url: '/fetchMovies',
       },
     )
     .then(res => res.data)
@@ -46,6 +52,6 @@ const fetchMovies = (params: IFetchMoviesParams) => {
       console.error('error: ', error);
       return null;
     }); */
-}
+};
 
 export default fetchMovies;

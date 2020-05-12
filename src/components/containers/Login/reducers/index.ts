@@ -1,23 +1,30 @@
 import { ILoginSuccessAction, ActionTypes } from '../actions';
 import { createReducer } from '../../../../helpers/reducer';
+import { FirebaseUser } from '../../../../types/user';
 
 export type ILoginState = {
-  isLoggedIn: boolean;
+  user: FirebaseUser | null;
 }
 
 const initialState: ILoginState = {
-  isLoggedIn: false,
+  user: null,
 };
 
-function handleOnLoginSuccess(state: ILoginState, action: ILoginSuccessAction) {
-  console.log('handleOnLoginSuccess action', action);
-
+function handleLoginSuccess(state: ILoginState, action: ILoginSuccessAction) {
   return {
     ...state,
-    isLoggedIn: true,
+    user: { ...action.payload },
+  };
+}
+
+function handleLogoutSuccess(state: ILoginState) {
+  return {
+    ...state,
+    user: null,
   };
 }
 
 export default createReducer(initialState, {
-  [ActionTypes.LOGIN_SUCCESS]: handleOnLoginSuccess,
+  [ActionTypes.LOGIN_SUCCESS]: handleLoginSuccess,
+  [ActionTypes.LOGOUT_SUCCESS]: handleLogoutSuccess,
 });

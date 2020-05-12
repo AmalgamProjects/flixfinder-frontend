@@ -2,33 +2,44 @@ import React from 'react';
 import firebase from 'firebase';
 import { FirebaseAuthConsumer, IfFirebaseAuthed, IfFirebaseAuthedAnd } from '@react-firebase/auth';
 import { ButtonField } from '../../presentationals';
-import { ILoginParams } from '../../../api/login';
+import { FirebaseUser } from '../../../types/user';
 
 interface IOwnProps {
-  onLogin: (params: ILoginParams) => void;
+  onLogin: (params: FirebaseUser) => void;
+  onLogout: () => void;
 }
 
 class LoginButton extends React.Component<IOwnProps> {
   handleSignIn = () => {
     const { onLogin } = this.props;
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
     firebase.auth().signInWithPopup(googleAuthProvider);
 
-    onLogin({});
-
-    /* firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(user => {
       if (user) {
         user.getIdToken().then(accessToken => {
-          console.log('accessToken', accessToken);
+          onLogin({
+            accessToken,
+            displayName: user.displayName || '',
+            email: user.email || '',
+            isAnonymous: user.isAnonymous,
+            uid: user.uid,
+          });
         });
       }
     }, error => {
+      // eslint-disable-next-line no-console
       console.log(error);
-    }); */
+    });
   };
 
   handleSignOut = () => {
-    firebase.auth().signOut();
+    const { onLogout } = this.props;
+    firebase.auth().signOut().then(() => {
+      console.log('signed out');
+      onLogout();
+    });
   };
 
   render(): JSX.Element {

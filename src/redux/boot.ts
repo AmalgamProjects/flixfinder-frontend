@@ -1,6 +1,6 @@
-import { store } from './store';
+import createdStore from './store';
 import authActions from './auth/actions';
 
 export default () => new Promise(() => {
-  store.dispatch(authActions.checkAuthorization());
+  createdStore.store.dispatch(authActions.checkAuthorization());
 });
