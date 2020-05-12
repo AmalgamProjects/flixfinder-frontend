@@ -3,19 +3,22 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import 'firebase/auth';
+import { PersistGate } from 'redux-persist/integration/react';
 import { FirebaseAuthProvider } from '@react-firebase/auth';
-import { store } from './redux/store';
+import createdStore from './redux/store';
 import Routes from './routes/Routes';
 import Boot from './redux/boot';
 import settings from './settings';
 
 const App = () => (
-  <Provider store={store}>
-    <FirebaseAuthProvider {...settings.firebase} firebase={firebase}>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-    </FirebaseAuthProvider>
+  <Provider store={createdStore.store}>
+    <PersistGate loading={null} persistor={createdStore.persistor}>
+      <FirebaseAuthProvider {...settings.firebase} firebase={firebase}>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </FirebaseAuthProvider>
+    </PersistGate>
   </Provider>
 );
 
