@@ -1,0 +1,22 @@
+.wrapper:last-of-type {
+  margin-left: 27px;
+}
+
+.wrapper a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.4px;
+  color: #000;
+  text-transform: capitalize;
+}
+
+.icon {
+  margin-right: 5px;
+  display: flex;
+}
