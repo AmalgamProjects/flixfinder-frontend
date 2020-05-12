@@ -3,3 +3,23 @@
   height: 100%;
   align-items: center;
 }
+
+.logo {
+  display: none;
+}
+
+@media (min-width: 970px) {
+  .logo {
+    display: block;
+  }
+}
+
+.logoSmall {
+  display: block;
+}
+
+@media (min-width: 970px) {
+  .logoSmall {
+    display: none;
+  }
+}

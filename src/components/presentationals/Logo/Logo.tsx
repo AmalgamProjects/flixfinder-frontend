@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { logo } from '../../../assets/icons';
+import { logo, logoSmall } from '../../../assets/icons';
 import { Link } from 'react-router-dom';
 import Styles from './Logo.module.css';
 
@@ -9,7 +9,8 @@ interface IOwnProps {
 
 const Logo: React.FC<IOwnProps> = ({ url }) => (
   <div className={Styles.wrapper}>
-    {url ? <Link to={url}>{logo}</Link> : logo}
+    <div className={Styles.logo}>{url ? <Link to={url}>{logo}</Link> : logo}</div>
+    <div className={Styles.logoSmall}>{url ? <Link to={url}>{logoSmall}</Link> : logoSmall}</div>
   </div>
 );
 
