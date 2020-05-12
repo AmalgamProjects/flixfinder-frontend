@@ -6,7 +6,7 @@ import Styles from './Layout.module.css';
 const Layout: React.SFC = ({ children }) => (
   <div className={Styles.wrapper}>
     <Header />
-    <div>
+    <div className={Styles.content}>
       {children}
     </div>
     <Footer />

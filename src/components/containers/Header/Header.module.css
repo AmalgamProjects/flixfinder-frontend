@@ -1,5 +1,24 @@
 .wrapper {
-  background-color: black;
-  color: white;
-  padding: 25px 0;
+  background-color: #fff;
+  color: black;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.headerLinks {
+  display: flex;
+}
+
+.search {
+  max-width: 570px;
+  width: 100%;
 }
