@@ -10,5 +10,5 @@ export interface IBaseAction {
 export interface IRootState {
   SagaAppReducer: ITestAppState;
   MoviesReducer: IMoviesState;
-  LoginReducer: ILoginState;
+  UserReducer: ILoginState;
 }
