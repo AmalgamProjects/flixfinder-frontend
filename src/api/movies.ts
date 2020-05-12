@@ -18,13 +18,18 @@ const fetchMovies = (params: IFetchMoviesParams) => {
     setTimeout(() => {
       const mockResponse: IFetchMoviesResponse = {
         movies: [
-          { id: '1', title: 'title 1' },
-          { id: '2', title: 'title 2' },
-          { id: '3', title: 'title 3' },
-          { id: '4', title: 'title 4' },
-          { id: '5', title: 'title 5' },
-          { id: '6', title: 'title 6' },
-          { id: '7', title: 'title 7' },
+          { id: '1', title: 'Awesome movie (1)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg'},
+          { id: '2', title: 'Awesome movie (2)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '3', title: 'Awesome movie (3)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '4', title: 'Awesome movie (4)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '5', title: 'Awesome movie (5)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '6', title: 'Awesome movie (6)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '7', title: 'Awesome movie (7)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '8', title: 'Awesome movie (8)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '9', title: 'Awesome movie (9)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '10', title: 'Awesome movie ( 10)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '11', title: 'Awesome movie (11)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
+          { id: '12', title: 'Awesome movie (12)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
         ],
       };
       resolve(mockResponse);
