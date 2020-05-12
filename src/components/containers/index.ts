@@ -1,5 +1,4 @@
 export { default as ActorsStep } from './ActorsStep/ActorsStep';
-export { default as SagaApp } from './SagaApp/SagaApp';
 export { default as Container } from './Container/Container';
 export { default as Row } from './Row/Row';
 export { default as Col } from './Col/Col';
