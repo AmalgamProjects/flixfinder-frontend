@@ -1,6 +1,20 @@
 import * as React from 'react';
-import { Layout } from '../../containers';
+import { withRouter, RouteComponentProps } from 'react-router';
+import { Layout, MovieDetails } from '../../containers';
 
-const Movie: React.FC = () => <Layout>Movie</Layout>;
+interface IOwnProps {}
 
-export default Movie;
+class Movie extends React.Component<IOwnProps & RouteComponentProps<{ id: string }>> {
+  render() {
+    const { match } = this.props;
+    const { params } = match;
+
+    return (
+      <Layout>
+        <MovieDetails movieId={params.id} />
+      </Layout>
+    );
+  }
+}
+
+export default withRouter(Movie);

@@ -1,10 +1,12 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 import { loadDataSuccess, ActionTypes } from '../actions';
-import fetchMovies, { IFetchMoviesResponse } from '../../../../api/movies';
+import { IFetchMoviesResponse } from '../../../../api/movies';
+import Api from '../../../../api';
 
+const apiInstance = new Api();
 
 function* loadData() {
-  const data: IFetchMoviesResponse = yield call(fetchMovies, {});
+  const data: IFetchMoviesResponse = yield call(apiInstance.fetchMovies, {});
   yield put(loadDataSuccess(data));
 }
 

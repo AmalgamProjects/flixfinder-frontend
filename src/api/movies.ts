@@ -5,20 +5,34 @@ export interface IFetchMoviesResponse {
   movies: IMovie[];
 }
 
+export interface IFetchMovieDetailsResponse {
+  movie: IMovie;
+}
+
 export interface IFetchMoviesParams {}
 
 export interface IFetchMovies {
   (params: IFetchMoviesParams): Promise<IFetchMoviesResponse | null>;
 }
 
+export interface IFetchMovieDetailsParams {
+  id: string;
+}
+
+export interface IFetchMovieDetails {
+  (params: IFetchMovieDetailsParams): Promise<IFetchMovieDetailsResponse | null>;
+}
+
 const accessToken = getAuthData()?.accessToken;
 
-const fetchMovies = (params: IFetchMoviesParams) => {
+export const fetchMovies = (params: IFetchMoviesParams) => {
+  console.log('fetchMovies params:', params);
+
   const promise = new Promise<IFetchMoviesResponse>(resolve => {
     setTimeout(() => {
       const mockResponse: IFetchMoviesResponse = {
         movies: [
-          { id: '1', title: 'Awesome movie (1)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg'},
+          { id: '1', title: 'Awesome movie (1)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
           { id: '2', title: 'Awesome movie (2)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
           { id: '3', title: 'Awesome movie (3)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
           { id: '4', title: 'Awesome movie (4)', imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg' },
@@ -59,4 +73,21 @@ const fetchMovies = (params: IFetchMoviesParams) => {
     }); */
 };
 
-export default fetchMovies;
+export const fetchMovieDetails = (params: IFetchMovieDetailsParams) => {
+  console.log('fetchMovieDetails params:', params);
+
+  const promise = new Promise<IFetchMovieDetailsResponse>(resolve => {
+    setTimeout(() => {
+      const mockResponse: IFetchMovieDetailsResponse = {
+        movie: {
+          id: params.id,
+          title: `Awesome movie (${params.id})`,
+          imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg',
+        },
+      };
+      resolve(mockResponse);
+    }, 200);
+  });
+
+  return promise;
+};

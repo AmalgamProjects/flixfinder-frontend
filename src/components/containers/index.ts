@@ -3,6 +3,7 @@ export { default as Container } from './Container/Container';
 export { default as Row } from './Row/Row';
 export { default as Col } from './Col/Col';
 export { default as Movies } from './Movies/Movies';
+export { default as MovieDetails } from './MovieDetails/MovieDetails';
 export { default as AutocompleteInput } from './AutocompleteInput/AutocompleteInput';
 export { default as Carousel } from './Carousel/Carousel';
 export { default as GendersStep } from './GendersStep/GendersStep';

@@ -1,5 +1,6 @@
-import { IFetchMovies } from '../api/movies';
+import { IFetchMovies, IFetchMovieDetails } from '../api/movies';
 
 export interface IApi {
   fetchMovies: IFetchMovies;
+  fetchMovieDetails: IFetchMovieDetails
 }
