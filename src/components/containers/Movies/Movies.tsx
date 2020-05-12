@@ -7,8 +7,9 @@ import { IRootState } from '../../../types/redux';
 import { MovieItem } from '../../presentationals';
 import { Container, Col, Row } from '..';
 import { IFirebaseUser } from '../../../types/user';
+import Styles from './Movies.module.css';
 
-interface IOwnProps {}
+interface IOwnProps { }
 interface IConnectedProps { state: IMoviesState; user: IFirebaseUser; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
@@ -24,7 +25,7 @@ class Movies extends Component<Props> {
     const { user } = this.props.user;
 
     return (
-      <div>
+      <div className={Styles.wrapper}>
         <Container>
           {user && <div>logged in {user.displayName}</div>}
           {!user && <div>logged out</div>}
