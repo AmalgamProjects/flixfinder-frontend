@@ -3,6 +3,13 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 61px 0;
-  background-color: #d4d4d4;
+  padding: 40px 0;
+  background-color: #fff;
+}
+
+.copyright {
+  font-size: 12px;
+  letter-spacing: -0.3px;
+  color: #636363;
+  margin-top: 22px;
 }

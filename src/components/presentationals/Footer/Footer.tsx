@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Logo } from '..';
 import Styles from './Footer.module.css';
+import { footerLogo } from '../../../assets/icons';
 
 const Footer: React.FC = () => {
   const date = new Date();
@@ -8,8 +8,8 @@ const Footer: React.FC = () => {
 
   return (
     <div className={Styles.wrapper}>
-      <Logo />
-      <div>© {year}</div>
+      {footerLogo}
+      <div className={Styles.copyright}>© {year}</div>
     </div>
   );
 };
