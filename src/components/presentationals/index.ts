@@ -19,3 +19,4 @@ export { default as ScrollToTopOnMount } from './ScrollToTopOnMount/ScrollToTopO
 export { default as HeaderLink } from './HeaderLink/HeaderLink';
 export { default as Empty } from './Empty/Empty';
 export { default as SliderElement } from './SliderElement/SliderElement';
+export { default as MoviesSectionList } from './MoviesSectionList/MoviesSectionList';
