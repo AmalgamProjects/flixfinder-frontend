@@ -1028,7 +1028,7 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@brainhubeu/react-carousel@^1.13.47":
+"@brainhubeu/react-carousel@1.13.47":
   version "1.13.47"
   resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.13.47.tgz#476a0bd3098e6c23a681f66c4684ae9901a32226"
   integrity sha512-Px/NfiYW9PlbHsZSR2Uipk48wzJNE0dmEraASFMvLfkM1/sNFYfUdTSwf4YFNkbdA2jVenuWyC2s0PPwAUCGeg==
@@ -1780,7 +1780,7 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/brainhubeu__react-carousel@^1.13.1":
+"@types/brainhubeu__react-carousel@1.13.1":
   version "1.13.1"
   resolved "https://registry.yarnpkg.com/@types/brainhubeu__react-carousel/-/brainhubeu__react-carousel-1.13.1.tgz#99e5391d26ed9207495af612a489060aee004017"
   integrity sha512-fdIo4rvC7shnNW5pKPlbiXO/euQ1u/DPJkFG0lq7HJEk/4cUCbzRYzShlzKh+rp4G24PDyVoB03UN3rHIxDXbg==
@@ -7857,7 +7857,7 @@ node-releases@^1.1.52, node-releases@^1.1.53:
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.55.tgz#8af23b7c561d8e2e6e36a46637bab84633b07cee"
   integrity sha512-H3R3YR/8TjT5WPin/wOoHOUPHgvj8leuU/Keta/rwelEQN9pA/S2Dx8/se4pZ2LBxSd0nAGzsNzhqwa77v7F1w==
 
-node-sass@^4.14.1:
+node-sass@4.14.1:
   version "4.14.1"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.14.1.tgz#99c87ec2efb7047ed638fb4c9db7f3a42e2217b5"
   integrity sha512-sjCuOlvGyCJS40R8BscF5vhVlQjNN069NtQ1gSxyK1u9iqvn6tf7O1R4GNowVZfiZUCRt5MmMs1xd+4V/7Yr0g==
