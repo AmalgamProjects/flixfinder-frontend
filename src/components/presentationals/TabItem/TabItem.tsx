@@ -1,7 +1,9 @@
 import * as React from 'react';
 
-const TabItem: React.FC = () => (
-  <div>TabItem</div>
-);
+const TabItem: React.SFC = ({ children }) => {
+  return (
+    <div>{children}</div>
+  );
+};
 
 export default TabItem;
