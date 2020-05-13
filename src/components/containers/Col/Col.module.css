@@ -1,5 +1,8 @@
 .wrapper {
-  width: 16.6666%;
-  padding: 0 15px 45px 0;
+  flex-basis: 16.6666%;
+  max-width: 16.6666%;
+  padding: 0 15px 45px 15px;
   box-sizing: border-box;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
