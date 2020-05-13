@@ -1,5 +1,4 @@
 import { IMovie } from '../types/movie';
-import { getAuthData } from '../helpers/auth';
 
 export interface IFetchMoviesResponse {
   movies: IMovie[];
@@ -22,8 +21,6 @@ export interface IFetchMovieDetailsParams {
 export interface IFetchMovieDetails {
   (params: IFetchMovieDetailsParams): Promise<IFetchMovieDetailsResponse | null>;
 }
-
-const accessToken = getAuthData()?.accessToken;
 
 export const fetchMovies = (params: IFetchMoviesParams) => {
   console.log('fetchMovies params:', params);
