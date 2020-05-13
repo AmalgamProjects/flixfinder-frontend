@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'firebase/auth';
 import { PersistGate } from 'redux-persist/integration/react';
 import { FirebaseAuthProvider } from '@react-firebase/auth';
+import { WithAuth } from './components/containers';
 import createdStore from './redux/store';
 import Routes from './routes/Routes';
 import Boot from './redux/boot';
@@ -15,6 +16,7 @@ const App = () => (
     <PersistGate loading={null} persistor={createdStore.persistor}>
       <FirebaseAuthProvider {...settings.firebase} firebase={firebase}>
         <BrowserRouter>
+          <WithAuth />
           <Routes />
         </BrowserRouter>
       </FirebaseAuthProvider>

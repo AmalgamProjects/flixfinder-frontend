@@ -26,9 +26,9 @@ class Movies extends Component<Props> {
 
     return (
       <div className={Styles.wrapper}>
+        {user && <div>logged in {user.displayName}</div>}
+        {!user && <div>logged out</div>}
         <Container>
-          {user && <div>logged in {user.displayName}</div>}
-          {!user && <div>logged out</div>}
           <Row>
             {movies && movies.map(movie => <Col key={movie.id}><MovieItem movie={movie} /></Col>)}
           </Row>
