@@ -7,7 +7,7 @@ import { IRootState } from '../../../types/redux';
 import { MovieItem } from '../../presentationals';
 import { Container, Col, Row } from '..';
 import { IFirebaseUser } from '../../../types/user';
-import Styles from './Movies.module.css';
+import Styles from './Movies.module.scss';
 
 interface IOwnProps { }
 interface IConnectedProps { state: IMoviesState; user: IFirebaseUser; }

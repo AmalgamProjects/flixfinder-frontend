@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Logo } from '../../presentationals';
-import Styles from './Header.module.css';
+import Styles from './Header.module.scss';
 import Container from '../Container/Container';
 import HeaderLink from '../../presentationals/HeaderLink/HeaderLink';
 import { watchlist, profile } from '../../../assets/icons';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Login as LoginUser } from '../../containers';
 import { Logo } from '../../presentationals';
 
-import Styles from './Login.module.css';
+import Styles from './Login.module.scss';
 
 const Login: React.FC = () => (
   <div className={Styles.wrapper}>

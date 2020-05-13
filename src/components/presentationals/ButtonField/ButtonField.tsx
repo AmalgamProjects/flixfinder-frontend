@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Styles from './ButtonField.module.css';
+import Styles from './ButtonField.module.scss';
 
 interface IProps {
   label: string;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Styles from './SliderElement.module.css';
+import Styles from './SliderElement.module.scss';
 import { Container } from '../../containers';
 import movieTestBackground from '../../../assets/images//movie-background-test.jpg';
 import movieTestPoster from '../../../assets/images/movie-poster-test.jpg';

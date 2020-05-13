@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ChangeEvent } from 'react';
 import { FieldError } from 'react-hook-form';
-import Styles from './InputField.module.css';
+import Styles from './InputField.module.scss';
 
 interface IProps {
   label: string;
