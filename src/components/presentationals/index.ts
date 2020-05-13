@@ -16,3 +16,4 @@ export { default as SearchMenu } from './SearchMenu/SearchMenu';
 export { default as TabItem } from './TabItem/TabItem';
 export { default as Tag } from './Tag/Tag';
 export { default as ScrollToTopOnMount } from './ScrollToTopOnMount/ScrollToTopOnMount';
+export { default as MoviesSectionList } from './MoviesSectionList/MoviesSectionList';
