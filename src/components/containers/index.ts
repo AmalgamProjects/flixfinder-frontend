@@ -18,3 +18,4 @@ export { default as LoginButton } from './LoginButton/LoginButton';
 export { default as Layout } from './Layout/Layout';
 export { default as Login } from './Login/Login';
 export { default as WithAuth } from './WithAuth/WithAuth';
+export { default as Slider } from './Slider/Slider';

@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Movies, Layout } from '../../containers';
-import Slider from '../../containers/Slider/Slider';
+import { Movies, Layout, Slider } from '../../containers';
 
 const Dashboard: React.FC = () => (
   <Layout>

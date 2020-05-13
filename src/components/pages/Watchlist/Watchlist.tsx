@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Layout, Container } from '../../containers';
 import Styles from './Watchlist.module.scss';
-import { TabItem } from '../../presentationals';
+import { TabItem, Empty } from '../../presentationals';
 import cx from 'classnames';
-import Empty from '../../presentationals/Empty/Empty';
 import { heart, check } from '../../../assets/icons';
 
 class Watchlist extends Component {
