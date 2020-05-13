@@ -1,12 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Logo, HeaderLink } from '../../presentationals';
 import Styles from './Header.module.scss';
 import Container from '../Container/Container';
 import { watchlist, profile } from '../../../assets/icons';
 import { HeaderSearch } from '..';
+import { withRouter, RouteComponentProps } from 'react-router';
 
-class Header extends Component {
+class Header extends React.Component<RouteComponentProps> {
   render() {
+    const { location } = this.props;
+    const { pathname } = location;
+
     return (
       <div className={Styles.wrapper}>
         <Container>
@@ -18,8 +22,8 @@ class Header extends Component {
               <HeaderSearch />
             </div>
             <div className={Styles.headerLinks}>
-              <HeaderLink icon={watchlist} url='/watchlist' label="my watchlist" />
-              <HeaderLink icon={profile} url='/profile' label="my profile" />
+              <HeaderLink pathname={pathname} icon={watchlist} url='/watchlist' label="my watchlist" />
+              <HeaderLink pathname={pathname} icon={profile} url='/profile' label="my profile" />
             </div>
           </div>
         </Container>
@@ -28,4 +32,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);
