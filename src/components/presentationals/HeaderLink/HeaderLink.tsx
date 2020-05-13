@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import Styles from './HeaderLink.module.css';
+import Styles from './HeaderLink.module.scss';
 
 interface IOwnProps {
   label: string;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
-import Styles from './Slider.module.css';
+import Styles from './Slider.module.scss';
 import { arrow } from '../../../assets/icons';
 import SliderElement from '../../presentationals/SliderElement/SliderElement';
 

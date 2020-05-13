@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Styles from './HeaderSearch.module.css';
+import Styles from './HeaderSearch.module.scss';
 import { search, caretDown } from '../../../assets/icons';
 
 interface IOwnProps {}

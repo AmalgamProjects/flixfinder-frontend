@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { IMovie } from '../../../types/movie';
-import Styles from './MovieItem.module.css';
+import Styles from './MovieItem.module.scss';
 
 interface IOwnProps {
   movie: IMovie;
