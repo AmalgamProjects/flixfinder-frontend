@@ -3,6 +3,26 @@
   align-items: center;
 }
 
+.logo {
+  display: none;
+}
+
 .wrapper svg {
   width: 100%;
+}
+
+@media (min-width: 970px) {
+  .logo {
+    display: block;
+  }
+}
+
+.logoSmall {
+  display: block;
+}
+
+@media (min-width: 970px) {
+  .logoSmall {
+    display: none;
+  }
 }

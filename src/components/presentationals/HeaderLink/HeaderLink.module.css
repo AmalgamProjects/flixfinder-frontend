@@ -1,5 +1,11 @@
 .wrapper:last-of-type {
-  margin-left: 27px;
+  margin-left: 10px;
+}
+
+@media (min-width: 970px) {
+  .wrapper:last-of-type {
+    margin-left: 27px;
+  }
 }
 
 .wrapper a {
@@ -14,6 +20,13 @@
   letter-spacing: -0.4px;
   color: #000;
   text-transform: capitalize;
+  display: none;
+}
+
+@media (min-width: 970px) {
+  .label {
+    display: block;
+  }
 }
 
 .icon {
