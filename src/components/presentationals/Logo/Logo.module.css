@@ -1,5 +1,8 @@
 .wrapper {
   display: flex;
-  height: 100%;
   align-items: center;
+}
+
+.wrapper svg {
+  width: 100%;
 }
