@@ -46,12 +46,12 @@
 }
 
 .paragraph {
-  font-family: Muli;
   font-size: 16px;
   letter-spacing: -0.4px;
   color: #fff;
   margin: 0 0 10px 0;
   display: flex;
+  line-height: normal;
 }
 
 .details {
@@ -73,10 +73,10 @@
   font-weight: bold;
   letter-spacing: -1.2px;
   color: #fff;
+  margin-bottom: 40px;
 }
 
 .title {
-  font-family: Muli;
   font-size: 32px;
   font-weight: bold;
   letter-spacing: -0.8px;
