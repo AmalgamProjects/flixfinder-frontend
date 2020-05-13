@@ -32,6 +32,14 @@
   justify-content: center;
   height: 100vh;
   align-items: center;
+
+  @media (max-width: 815px) {
+    width: 100%;
+
+    &:first-child {
+      display: none;
+    }
+  }
 }
 
 .content {
