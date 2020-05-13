@@ -6,7 +6,7 @@ import { watchlist, profile } from '../../../assets/icons';
 import { HeaderSearch } from '..';
 import { withRouter, RouteComponentProps } from 'react-router';
 
-class Header extends React.Component<RouteComponentProps<{ id: string }>> {
+class Header extends React.Component<RouteComponentProps> {
   render() {
     const { location } = this.props;
     const { pathname } = location;
