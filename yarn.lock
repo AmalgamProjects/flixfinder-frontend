@@ -1028,6 +1028,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@brainhubeu/react-carousel@^1.13.47":
+  version "1.13.47"
+  resolved "https://registry.yarnpkg.com/@brainhubeu/react-carousel/-/react-carousel-1.13.47.tgz#476a0bd3098e6c23a681f66c4684ae9901a32226"
+  integrity sha512-Px/NfiYW9PlbHsZSR2Uipk48wzJNE0dmEraASFMvLfkM1/sNFYfUdTSwf4YFNkbdA2jVenuWyC2s0PPwAUCGeg==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1774,6 +1779,13 @@
   integrity sha512-ddHK5icION5U6q11+tV2f9Mo6CZVuT8GJKld2q9LqHSZbvLbH34Kcu2yFGckZut453+eQU6btIA3RihmnRgI+Q==
   dependencies:
     "@babel/types" "^7.3.0"
+
+"@types/brainhubeu__react-carousel@^1.13.1":
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/@types/brainhubeu__react-carousel/-/brainhubeu__react-carousel-1.13.1.tgz#99e5391d26ed9207495af612a489060aee004017"
+  integrity sha512-fdIo4rvC7shnNW5pKPlbiXO/euQ1u/DPJkFG0lq7HJEk/4cUCbzRYzShlzKh+rp4G24PDyVoB03UN3rHIxDXbg==
+  dependencies:
+    "@types/react" "*"
 
 "@types/classnames@2.2.10":
   version "2.2.10"
@@ -9508,7 +9520,7 @@ redux-devtools-extension@2.13.8:
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.8.tgz#37b982688626e5e4993ff87220c9bbb7cd2d96e1"
   integrity sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
 
-redux-persist@^6.0.0:
+redux-persist@6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-6.0.0.tgz#b4d2972f9859597c130d40d4b146fecdab51b3a8"
   integrity sha512-71LLMbUq2r02ng2We9S215LtPu3fY0KgaGE0k8WRgl6RkqxtGfl7HUozz1Dftwsb0D/5mZ8dwAaPbtnzfvbEwQ==
