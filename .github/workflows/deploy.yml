@@ -1,6 +1,10 @@
 ---
 name: Build and Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - develop
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -51,7 +55,8 @@ jobs:
         REACT_APP_FIREBASE_STORAGE_BUCKET: flixfinder-develop.appspot.com
       run: |
         yarn build
-        mv ./build/ ${WORKSPACE}/deploy/static-develop/
+        rm -rf ${WORKSPACE}/deploy/static-develop/
+        mv -vf ./build/ ${WORKSPACE}/deploy/static-develop/
     - name: Yarn Build (production)
       working-directory: ${{ github.workspace }}/frontend/
       env:
@@ -67,7 +72,8 @@ jobs:
         REACT_APP_FIREBASE_STORAGE_BUCKET: flixfinder.appspot.com
       run: |
         yarn build
-        mv ./build/ ${WORKSPACE}/deploy/static/
+        rm -rf ${WORKSPACE}/deploy/static/
+        mv -vf ./build/ ${WORKSPACE}/deploy/static/
     - name: Commit
       working-directory: ${{ github.workspace }}/deploy/
       env:
