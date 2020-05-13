@@ -48,7 +48,6 @@
   letter-spacing: -0.4px;
   color: #fff;
   margin: 0 0 10px 0;
-  display: flex;
   line-height: normal;
 }
 
@@ -90,6 +89,7 @@
 }
 
 .ratingIcon {
-  margin-top: 2px;
+  display: inline-block;
+  vertical-align: middle;
   margin-right: 5px;
 }
