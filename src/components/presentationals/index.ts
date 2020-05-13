@@ -15,3 +15,4 @@ export { default as SearchInput } from './SearchInput/SearchInput';
 export { default as SearchMenu } from './SearchMenu/SearchMenu';
 export { default as TabItem } from './TabItem/TabItem';
 export { default as Tag } from './Tag/Tag';
+export { default as ScrollToTopOnMount } from './ScrollToTopOnMount/ScrollToTopOnMount';
