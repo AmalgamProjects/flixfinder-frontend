@@ -9,9 +9,9 @@ interface IOwnProps {
 
 const MovieItem: React.FC<IOwnProps> = ({ movie }) => (
   <div className={Styles.wrapper}>
-    <Link to={`/movie/${movie.id}`}>
+    <Link className={Styles.link} to={`/movie/${movie.id}`}>
       <img className={Styles.cover} src={movie.imageUrl} alt={movie.title} />
-      {movie.title}
+      <span className={Styles.title}>{movie.title}</span>
     </Link>
   </div>
 );

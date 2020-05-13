@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { logo, logoSmall } from '../../../assets/icons';
 import { Link } from 'react-router-dom';
-import Styles from './Logo.module.css';
+import { logo, logoSmall } from '../../../assets/icons';
+import Styles from './Logo.module.scss';
 
 interface IOwnProps {
   url?: string;
