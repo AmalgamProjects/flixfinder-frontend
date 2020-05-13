@@ -8,6 +8,10 @@
   flex-shrink: 0;
 }
 
+.logo {
+  width: 153px;
+}
+
 .innerContainer {
   display: flex;
   justify-content: space-between;
