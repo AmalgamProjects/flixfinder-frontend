@@ -1,0 +1,14 @@
+.arrowLeft {
+  position: absolute;
+  left: 38px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.arrowRight {
+  position: absolute;
+  right: 38px;
+  z-index: 1;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
