@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Logo } from '../../presentationals';
+import { Logo, HeaderLink } from '../../presentationals';
 import Styles from './Header.module.scss';
 import Container from '../Container/Container';
-import HeaderLink from '../../presentationals/HeaderLink/HeaderLink';
 import { watchlist, profile } from '../../../assets/icons';
-import HeaderSearch from '../HeaderSearch/HeaderSearch';
+import { HeaderSearch } from '..';
 
 class Header extends Component {
   render() {
