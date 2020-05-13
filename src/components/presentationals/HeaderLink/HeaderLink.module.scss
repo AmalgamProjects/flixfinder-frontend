@@ -1,17 +1,17 @@
-.wrapper:last-of-type {
-  margin-left: 10px;
-}
+.wrapper {
+  &:last-of-type {
+    margin-left: 10px;
 
-@media (min-width: 970px) {
-  .wrapper:last-of-type {
-    margin-left: 27px;
+    @media (min-width: 970px) {
+      margin-left: 27px;
+    }
   }
-}
 
-.wrapper a {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
+  & a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .label {
@@ -21,10 +21,8 @@
   color: #000;
   text-transform: capitalize;
   display: none;
-}
 
-@media (min-width: 970px) {
-  .label {
+  @media (min-width: 970px) {
     display: block;
   }
 }
