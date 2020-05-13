@@ -17,3 +17,4 @@ export { default as TvShowsStep } from './TvShowsStep/TvShowsStep';
 export { default as LoginButton } from './LoginButton/LoginButton';
 export { default as Layout } from './Layout/Layout';
 export { default as Login } from './Login/Login';
+export { default as WithAuth } from './WithAuth/WithAuth';

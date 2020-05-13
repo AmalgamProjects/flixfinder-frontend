@@ -1,11 +1,14 @@
 .wrapper {
   display: flex;
-  height: 100%;
   align-items: center;
 }
 
 .logo {
   display: none;
+}
+
+.wrapper svg {
+  width: 100%;
 }
 
 @media (min-width: 970px) {
