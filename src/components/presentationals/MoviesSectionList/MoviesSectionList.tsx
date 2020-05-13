@@ -15,7 +15,7 @@ const MoviesSectionList: React.FC<IOwnProps> = ({ title, movies, path }) => (
   <div className={Styles.wrapper}>
     <Container>
       <div className={Styles.heading}>
-        <Heading title={title} />
+        <Heading title={title} size="small" />
         {path && (
           <Link className={Styles.link} to={path}>See all</Link>
         )}
