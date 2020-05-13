@@ -5,4 +5,16 @@
 .cover {
   display: block;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -0.35px;
+  color: #000;
 }
