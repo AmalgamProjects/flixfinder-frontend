@@ -5,4 +5,14 @@
   box-sizing: border-box;
   flex-grow: 0;
   flex-shrink: 0;
+
+  @media (max-width: 815px) {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
+
+  @media (max-width: 550px) {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
 }

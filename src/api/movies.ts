@@ -50,8 +50,6 @@ export const fetchMovies = (params: IFetchMoviesParams) => {
     }, 200);
   });
 
-  console.log('accessToken', accessToken);
-
   return promise;
 
   /* return axios
