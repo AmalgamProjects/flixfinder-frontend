@@ -7,6 +7,10 @@
   padding: 15px 0;
 }
 
+.logo {
+  width: 153px;
+}
+
 .innerContainer {
   display: flex;
   justify-content: space-between;
