@@ -1,0 +1,86 @@
+---
+name: Build and Deploy
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [11.15.0]
+    steps:
+    - name: Checkout frontend
+      uses: actions/checkout@v2
+      with:
+       path: frontend
+    - name: Checkout Deploy
+      uses: actions/checkout@v2
+      with:
+       repository: AmalgamProjects/flixfinder-deploy
+       token: ${{ secrets.GIT_DEPLOY_TOKEN }}
+       path: deploy
+       ref: develop
+    - name: Checkout Deploy history
+      working-directory: ${{ github.workspace }}/deploy/
+      run: |
+        git fetch --unshallow
+        git checkout develop
+        git pull
+        rm -rf ./static/
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@master
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      working-directory: ${{ github.workspace }}/frontend/
+      run: |
+        yarn
+      env:
+        CI: true
+    - name: Yarn Build (develop)
+      working-directory: ${{ github.workspace }}/frontend/
+      env:
+        CI: true
+        WORKSPACE: ${{ github.workspace }}
+        REACT_APP_FIREBASE_APP_ID: 1:448246272078:web:119efaa4c633b6d3abb31f
+        REACT_APP_FIREBASE_API_KEY: AIzaSyDtATAahIYl_iAHl-PjAEd8vrLZiZtM0bA
+        REACT_APP_FIREBASE_AUTH_DOMAIN: flixfinder-develop.firebaseapp.com
+        REACT_APP_FIREBASE_DATABASE_URL: https://flixfinder-develop.firebaseio.com
+        REACT_APP_FIREBASE_MEASUREMENT_ID: G-1YWG9JRP85
+        REACT_APP_FIREBASE_MESSAGING_SENDER_ID: 448246272078
+        REACT_APP_FIREBASE_PROJECT_ID: flixfinder-develop
+        REACT_APP_FIREBASE_STORAGE_BUCKET: flixfinder-develop.appspot.com
+      run: |
+        yarn build
+        mv ./build/ ${WORKSPACE}/deploy/static-develop/
+    - name: Yarn Build (production)
+      working-directory: ${{ github.workspace }}/frontend/
+      env:
+        CI: true
+        WORKSPACE: ${{ github.workspace }}
+        REACT_APP_FIREBASE_APP_ID: 1:82969337644:web:0f67863aa9981e5af2d689
+        REACT_APP_FIREBASE_API_KEY: AIzaSyBmSwQCW0kg8mZyAJGVZEzUApVT-eIzN-s
+        REACT_APP_FIREBASE_AUTH_DOMAIN: flixfinder.firebaseapp.com
+        REACT_APP_FIREBASE_DATABASE_URL: https://flixfinder.firebaseio.com
+        REACT_APP_FIREBASE_MEASUREMENT_ID: G-VYPL3Q755G
+        REACT_APP_FIREBASE_MESSAGING_SENDER_ID: 82969337644
+        REACT_APP_FIREBASE_PROJECT_ID: flixfinder
+        REACT_APP_FIREBASE_STORAGE_BUCKET: flixfinder.appspot.com
+      run: |
+        yarn build
+        mv ./build/ ${WORKSPACE}/deploy/static/
+    - name: Commit
+      working-directory: ${{ github.workspace }}/deploy/
+      env:
+        MESSAGE: AUTO ${{ github.repository }} ${{ github.ref }} ${{ github.sha }}
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git status
+        git commit -a -m "${MESSAGE}"
+    - name: Push
+      working-directory: ${{ github.workspace }}/deploy/
+      env:
+        REPO: https://${{ github.actor }}:${{ secrets.GIT_DEPLOY_TOKEN }}@github.com/AmalgamProjects/flixfinder-deploy.git
+      run: |
+        git push "${REPO}" HEAD:develop
