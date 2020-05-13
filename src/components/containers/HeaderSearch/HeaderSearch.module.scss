@@ -19,28 +19,24 @@
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   font-family: Muli;
-}
 
-@media (min-width: 970px) {
-  .input {
+  @media (min-width: 970px) {
     padding: 0 60px 0 10px;
   }
-}
 
-.input::placeholder {
-  color: #a9a9a9;
-}
+  &::placeholder {
+    color: #a9a9a9;
+  }
 
-.input:focus {
-  outline: 0;
+  &:focus {
+    outline: 0;
+  }
 }
 
 .searchIcon {
   display: none;
-}
 
-@media (min-width: 970px) {
-  .searchIcon {
+  @media (min-width: 970px) {
     display: block;
     position: absolute;
     right: 22px;
@@ -71,10 +67,10 @@
   letter-spacing: -0.4px;
   color: #636363;
   padding-right: 22px;
-}
 
-.select::-ms-expand {
-  display: none;
+  ::-ms-expand {
+    display: none;
+  }
 }
 
 .selectIcon {

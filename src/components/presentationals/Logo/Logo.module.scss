@@ -9,20 +9,16 @@
 
 .logo {
   display: none;
-}
 
-@media (min-width: 970px) {
-  .logo {
+  @media (min-width: 970px) {
     display: block;
   }
 }
 
 .logoSmall {
   display: block;
-}
 
-@media (min-width: 970px) {
-  .logoSmall {
+  @media (min-width: 970px) {
     display: none;
   }
 }

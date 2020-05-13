@@ -6,20 +6,16 @@
   box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
   padding: 15px 0;
-}
 
-@media (min-width: 970px) {
-  .wrapper {
+  @media (min-width: 970px) {
     padding: 0;
   }
 }
 
 .logo {
   width: 48px;
-}
 
-@media (min-width: 970px) {
-  .logo {
+  @media (min-width: 970px) {
     width: 153px;
   }
 }
