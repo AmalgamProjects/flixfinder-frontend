@@ -12,7 +12,9 @@ class Header extends Component {
       <div className={Styles.wrapper}>
         <Container>
           <div className={Styles.innerContainer}>
-            <Logo url='/' />
+            <div className={Styles.logo}>
+              <Logo url='/' />
+            </div>
             <div className={Styles.search}>
               <HeaderSearch />
             </div>
