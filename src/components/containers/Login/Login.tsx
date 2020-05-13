@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { login, logout } from './actions';
 import { ILoginState } from './reducers';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { IRootState } from '../../../types/redux';
 import { FirebaseUser } from '../../../types/user';
 import { LoginButton } from '..';
@@ -13,23 +14,31 @@ interface IConnectedDispatchProps {
   onLogin: typeof login;
   onLogout: typeof logout;
 }
-type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
+type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps;
 
 class Login extends Component<Props> {
   handleOnLogin = (params: FirebaseUser) => {
-    const { onLogin } = this.props;
+    const { onLogin, history } = this.props;
     onLogin(params);
+    history.push('/');
   };
 
   handleOnLogout = () => {
-    const { onLogout } = this.props;
+    const { onLogout, history } = this.props;
     onLogout();
+    history.push('/login');
   };
 
   render() {
+    const { state } = this.props;
+
     return (
       <div>
-        <LoginButton onLogin={this.handleOnLogin} onLogout={this.handleOnLogout} />
+        <LoginButton
+          isLoggedIn={!!state.user}
+          onLogin={this.handleOnLogin}
+          onLogout={this.handleOnLogout}
+        />
       </div>
     );
   }
@@ -43,4 +52,4 @@ export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRoo
     onLogin: params => dispatch(login(params)),
     onLogout: () => dispatch(logout()),
   }),
-)(Login);
+)(withRouter(Login));

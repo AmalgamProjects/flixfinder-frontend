@@ -74,8 +74,6 @@ export const fetchMovies = (params: IFetchMoviesParams) => {
 };
 
 export const fetchMovieDetails = (params: IFetchMovieDetailsParams) => {
-  console.log('fetchMovieDetails params:', params);
-
   const promise = new Promise<IFetchMovieDetailsResponse>(resolve => {
     setTimeout(() => {
       const mockResponse: IFetchMovieDetailsResponse = {
