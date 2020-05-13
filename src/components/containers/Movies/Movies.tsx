@@ -4,13 +4,11 @@ import { Dispatch } from 'redux';
 import { loadData } from './actions';
 import { IMoviesState } from './reducers';
 import { IRootState } from '../../../types/redux';
-import { MovieItem } from '../../presentationals';
-import { Container, Col, Row } from '..';
-import { IFirebaseUser } from '../../../types/user';
+import { MoviesSectionList } from '../../presentationals';
 import Styles from './Movies.module.scss';
 
 interface IOwnProps { }
-interface IConnectedProps { state: IMoviesState; user: IFirebaseUser; }
+interface IConnectedProps { state: IMoviesState; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
 
@@ -22,17 +20,11 @@ class Movies extends Component<Props> {
 
   render() {
     const { movies } = this.props.state;
-    const { user } = this.props.user;
 
     return (
       <div className={Styles.wrapper}>
-        {user && <div>logged in {user.displayName}</div>}
-        {!user && <div>logged out</div>}
-        <Container>
-          <Row>
-            {movies && movies.map(movie => <Col key={movie.id}><MovieItem movie={movie} /></Col>)}
-          </Row>
-        </Container>
+        <MoviesSectionList movies={movies} title="Recommended Movies" path="/reccomended-movies" />
+        <MoviesSectionList movies={movies} title="Recommended TV Shows" path="/reccomended-tv-shows" />
       </div>
     );
   }
@@ -41,7 +33,6 @@ class Movies extends Component<Props> {
 export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRootState>(
   (state: IRootState) => ({
     state: state.MoviesReducer,
-    user: state.UserReducer,
   }),
   (dispatch: Dispatch) => ({
     onLoadData: () => dispatch(loadData()),
