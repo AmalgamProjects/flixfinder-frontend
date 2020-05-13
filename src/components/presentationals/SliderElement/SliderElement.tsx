@@ -14,7 +14,7 @@ const SliderElement: React.FC<IOwnProps> = () => (
         <div className={Styles.content}>
           <div>
             <h1 className={Styles.heading}>Top Picks</h1>
-            <img className={Styles.poster} src={movieTestPoster} />
+            <img className={Styles.poster} alt="poster" src={movieTestPoster} />
           </div>
           <div className={Styles.details}>
             <h2 className={Styles.title}>Inception</h2>
