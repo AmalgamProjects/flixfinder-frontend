@@ -198,3 +198,24 @@ export const heart = (
     ></path>
   </svg>
 );
+
+export const envelope = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
+    <g
+      fill="none"
+      fillRule="evenodd"
+      stroke="#000"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.5"
+    >
+      <rect width="21" height="15" x="1.5" y="4.75" rx="1.5"></rect>
+      <path d="M22.161 5.3l-8.144 6.264a3.307 3.307 0 01-4.034 0L1.839 5.3"></path>
+    </g>
+  </svg>
+);
