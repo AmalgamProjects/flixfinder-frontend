@@ -29,6 +29,7 @@ class MovieDetails extends Component<Props> {
       this.props.onLoadData({ id: this.props.movieId });
     }
   }
+
   render() {
     const { movieId } = this.props;
 

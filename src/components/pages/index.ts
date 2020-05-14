@@ -4,6 +4,6 @@ export { default as Onboarding } from './Onboarding/Onboarding';
 export { default as MyProfile } from './MyProfile/MyProfile';
 export { default as Watchlist } from './Watchlist/Watchlist';
 export { default as Movie } from './Movie/Movie';
-export { default as ReccomendedMovies } from './ReccomendedMovies/ReccomendedMovies';
-export { default as ReccomendedTvShows } from './ReccomendedTvShows/ReccomendedTvShows';
+export { default as RecommendedMovies } from './RecommendedMovies/RecommendedMovies';
+export { default as RecommendedTvShows } from './RecommendedTvShows/RecommendedTvShows';
 export { default as NotFountRoute } from './NotFountRoute/NotFountRoute';

@@ -8,16 +8,16 @@ import {
   Watchlist,
   Movie,
   NotFountRoute,
-  ReccomendedMovies,
-  ReccomendedTvShows,
+  RecommendedMovies,
+  RecommendedTvShows,
 } from '../components/pages';
 
 const Routes = () => (
   <Switch>
     <Route path="/" exact component={Dashboard} />
     <Route path="/login" exact component={Login} />
-    <Route path="/reccomended-movies" exact component={ReccomendedMovies} />
-    <Route path="/reccomended-tv-shows" exact component={ReccomendedTvShows} />
+    <Route path="/reccomended-movies" exact component={RecommendedMovies} />
+    <Route path="/reccomended-tv-shows" exact component={RecommendedTvShows} />
     <Route path="/onboarding" exact component={Onboarding} />
     <Route path="/profile" exact component={MyProfile} />
     <Route path="/watchlist" exact component={Watchlist} />
