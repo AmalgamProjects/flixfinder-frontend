@@ -11,6 +11,8 @@ import Styles from './MovieItem.module.scss';
 
 interface IOwnProps {
   movie: IMovie;
+  isAddToWatchlistVisible?: boolean;
+  isMarkAsWatchedVisible?: boolean;
 }
 interface IConnectedProps { state: IUserData; }
 interface IConnectedDispatchProps {
@@ -31,14 +33,14 @@ class MovieItem extends Component<Props> {
   };
 
   render() {
-    const { movie } = this.props;
+    const { movie, isAddToWatchlistVisible = true, isMarkAsWatchedVisible = true } = this.props;
     const movieCover = movie.imageUrl ? movie.imageUrl : 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg';
 
     return (
       <div className={Styles.wrapper}>
 
-        <button onClick={this.handleAddToWatchlist}>add to watchlist</button>
-        <button onClick={this.handleMarkAsWatched}>mark as watched</button>
+        {isAddToWatchlistVisible && <button onClick={this.handleAddToWatchlist}>add to watchlist</button>}
+        {isMarkAsWatchedVisible && <button onClick={this.handleMarkAsWatched}>mark as watched</button>}
 
         <Link className={Styles.link} to={`/movie/${movie.title}`}>
           <img className={Styles.cover} src={movieCover} alt={movie.title} />
