@@ -5,7 +5,7 @@ import { loadData } from './actions';
 import { IMovieDetailsState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { IFirebaseUser } from '../../../types/user';
-import { ContentWithHeader, Person, Review, FullWidthMovie, MovieItem } from '../../presentationals';
+import { ContentWithHeader, Person, Review, FullWidthMovie } from '../../presentationals';
 import Styles from './MovieDetails.module.scss';
 import movieTestBackground from '../../../assets/images//movie-background-test.jpg';
 import { Container, Row, Col } from '..';
@@ -88,12 +88,12 @@ class MovieDetails extends Component<Props> {
 
               <ContentWithHeader heading="More Like This">
                 <Row>
-                  <Col><MovieItem movie={{ id: '1', user: '1', title: 'Awesome movie (1)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                  {/* <Col><MovieItem movie={{ id: '1', user: '1', title: 'Awesome movie (1)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
                   <Col><MovieItem movie={{ id: '1', user: '2', title: 'Awesome movie (2)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
                   <Col><MovieItem movie={{ id: '1', user: '3', title: 'Awesome movie (3)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
                   <Col><MovieItem movie={{ id: '1', user: '4', title: 'Awesome movie (4)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
                   <Col><MovieItem movie={{ id: '1', user: '5', title: 'Awesome movie (5)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
-                  <Col><MovieItem movie={{ id: '1', user: '6', title: 'Awesome movie (6)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                  <Col><MovieItem movie={{ id: '1', user: '6', title: 'Awesome movie (6)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col> */}
                 </Row>
               </ContentWithHeader>
 
