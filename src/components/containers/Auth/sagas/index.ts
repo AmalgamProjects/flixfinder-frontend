@@ -7,7 +7,6 @@ function* loginUser(action: ILoginRequestAction) {
 }
 
 function* logoutUser() {
-  console.log('logoutUser');
   yield put(logoutSuccess());
 }
 

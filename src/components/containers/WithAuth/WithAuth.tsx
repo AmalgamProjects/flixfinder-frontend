@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { IRootState } from '../../../types/redux';
-import { ILoginState } from '../Login/reducers';
+import { ILoginState } from '../Auth/reducers';
 
 interface IOwnProps {}
 interface IConnectedProps { state: ILoginState; }
@@ -10,10 +10,12 @@ interface IConnectedDispatchProps {}
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps;
 
 class WithAuth extends Component<Props> {
+  private loginPathname = '/login';
+
   componentDidMount() {
     const { state, location } = this.props;
 
-    if (location.pathname !== '/login') {
+    if (location.pathname !== this.loginPathname) {
       if (!state.user) {
         this.redirectToLoginView();
       }
@@ -23,7 +25,7 @@ class WithAuth extends Component<Props> {
   componentDidUpdate(prevProps: Props) {
     const { state, location } = this.props;
 
-    if (location !== prevProps.location && location.pathname !== '/login') {
+    if (location !== prevProps.location && location.pathname !== this.loginPathname) {
       if (!state.user) {
         this.redirectToLoginView();
       }
@@ -32,7 +34,7 @@ class WithAuth extends Component<Props> {
 
   redirectToLoginView = () => {
     const { history } = this.props;
-    history.push('/login');
+    history.push(this.loginPathname);
   };
 
   // eslint-disable-next-line class-methods-use-this
@@ -42,8 +44,5 @@ class WithAuth extends Component<Props> {
 }
 
 export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRootState>(
-  (state: IRootState) => ({
-    state: state.UserReducer,
-  }),
-  {},
+  (state: IRootState) => ({ state: state.UserReducer }),
 )(withRouter(WithAuth));
