@@ -22,3 +22,6 @@ export { default as FullWidthMovie } from './FullWidthMovie/FullWidthMovie';
 export { default as MoviesSectionList } from './MoviesSectionList/MoviesSectionList';
 export { default as MovieDetails } from './MovieDetails/MovieDetails';
 export { default as TileButton } from './TileButton/TileButton';
+export { default as ContentWithHeader } from './ContentWithHeader/ContentWithHeader';
+export { default as Person } from './Person/Person';
+export { default as Review } from './Review/Review';
