@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { login, logout } from './actions';
 import { ILoginState } from './reducers';
-import { withRouter, RouteComponentProps } from 'react-router';
 import { IRootState } from '../../../types/redux';
 import { FirebaseUser } from '../../../types/user';
-import { LoginButton } from '..';
+import { FirebaseAuth } from '..';
 
 interface IOwnProps {}
 interface IConnectedProps { state: ILoginState; }
@@ -34,7 +34,7 @@ class Login extends Component<Props> {
 
     return (
       <div>
-        <LoginButton
+        <FirebaseAuth
           isLoggedIn={!!state.user}
           onLogin={this.handleOnLogin}
           onLogout={this.handleOnLogout}

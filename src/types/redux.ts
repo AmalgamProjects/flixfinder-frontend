@@ -1,5 +1,5 @@
 import { IMoviesState } from '../components/containers/Movies/reducers';
-import { ILoginState } from '../components/containers/Login/reducers';
+import { ILoginState } from '../components/containers/Auth/reducers';
 import { IMovieDetailsState } from '../components/containers/MovieDetails/reducers';
 
 export interface IBaseAction {

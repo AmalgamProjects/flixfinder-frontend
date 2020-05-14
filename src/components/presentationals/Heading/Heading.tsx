@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Styles from './Heading.module.scss';
 import cx from 'classnames';
+import Styles from './Heading.module.scss';
 
 interface IOwnProps {
   title: string;

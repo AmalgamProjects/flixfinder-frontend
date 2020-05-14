@@ -1,7 +1,8 @@
 export type FirebaseUser = {
-  displayName: string;
+  displayName: string | null;
+  photoURL: string | null;
   accessToken: string;
-  email: string;
+  email: string | null;
   isAnonymous: boolean;
   uid: string;
 };

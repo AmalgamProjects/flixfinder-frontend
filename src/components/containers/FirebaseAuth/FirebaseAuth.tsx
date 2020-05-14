@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import firebase from 'firebase';
 // import { FirebaseAuthConsumer, IfFirebaseAuthed, IfFirebaseAuthedAnd } from '@react-firebase/auth';
 import { ButtonField } from '../../presentationals';
@@ -11,20 +11,23 @@ interface IOwnProps {
   isLoggedIn: boolean;
 }
 
-class LoginButton extends React.Component<IOwnProps> {
+class FirebaseAuth extends React.Component<IOwnProps> {
   componentDidMount() {
     const { onLogin } = this.props;
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         if (!getAuthData()) {
+          const { uid, photoURL, displayName, email, isAnonymous } = user;
+
           user.getIdToken().then(accessToken => {
             onLogin({
               accessToken,
-              displayName: user.displayName || '',
-              email: user.email || '',
-              isAnonymous: user.isAnonymous,
-              uid: user.uid,
+              photoURL,
+              displayName,
+              email,
+              isAnonymous,
+              uid,
             });
           });
         }
@@ -52,9 +55,13 @@ class LoginButton extends React.Component<IOwnProps> {
     const { isLoggedIn } = this.props;
 
     return (
-      <div>
-        {!isLoggedIn && <ButtonField type="button" onClick={this.handleSignIn} label="Get started now" />}
-        {isLoggedIn && <ButtonField type="button" onClick={this.handleSignOut} label="Sign Out" />}
+      <Fragment>
+        {!isLoggedIn && (
+          <ButtonField type="button" onClick={this.handleSignIn} label="Get started now" />
+        )}
+        {isLoggedIn && (
+          <ButtonField type="button" size="small" variant="secondary" onClick={this.handleSignOut} label="Log Out" />
+        )}
         {/* <FirebaseAuthConsumer>
           {({ isSignedIn, user, providerId }) => {
             return (
@@ -78,9 +85,9 @@ class LoginButton extends React.Component<IOwnProps> {
             }}
           </IfFirebaseAuthedAnd>
           </div> */}
-      </div>
+      </Fragment>
     );
   }
 }
 
-export default LoginButton;
+export default FirebaseAuth;
