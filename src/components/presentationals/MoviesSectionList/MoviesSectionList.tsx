@@ -24,7 +24,7 @@ const MoviesSectionList: React.FC<IOwnProps> = ({ title, movies, path }) => (
     <Container>
       <Row>
         {movies && movies.map(movie => (
-          <Col key={movie.id}>
+          <Col key={movie.title}>
             <MovieItem movie={movie} />
           </Col>
         ))}
