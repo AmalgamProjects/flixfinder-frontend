@@ -10,7 +10,6 @@ interface IOwnProps {
 
 const Review: React.FC<IOwnProps> = ({ rating, review, user }) => (
   <div className={Styles.wrapper}>
-
     <div className={Styles.rating}>
       <p className={Styles.text}><
         span className={Styles.icon}>{ratings}</span>
