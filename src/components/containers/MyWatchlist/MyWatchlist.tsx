@@ -25,7 +25,7 @@ class MyWatchlist extends Component<Props> {
     return (
         <Fragment>
           {watch && watch.length > 0 && (
-            <MoviesSectionList movies={watch} title="Movies" />
+            <MoviesSectionList movies={watch} title="Movies" isWatchlist />
           )}
           {(!watch || !watch.length) && (
             <Empty>

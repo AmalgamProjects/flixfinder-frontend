@@ -8,10 +8,12 @@ import Styles from './MoviesSectionList.module.scss';
 interface IOwnProps {
   path?: string;
   title: string;
+  isWatchlist?: boolean;
+  isAlreadyWachedList?: boolean;
   movies: IMovie[];
 }
 
-const MoviesSectionList: React.FC<IOwnProps> = ({ title, movies, path }) => (
+const MoviesSectionList: React.FC<IOwnProps> = ({ title, movies, path, isWatchlist, isAlreadyWachedList }) => (
   <div className={Styles.wrapper}>
     <Container>
       <div className={Styles.heading}>
@@ -25,7 +27,7 @@ const MoviesSectionList: React.FC<IOwnProps> = ({ title, movies, path }) => (
       <Row>
         {movies && movies.map(movie => (
           <Col key={movie.title}>
-            <MovieItem movie={movie} />
+            <MovieItem movie={movie} isAddToWatchlistVisible={!isWatchlist && !isAlreadyWachedList} isMarkAsWatchedVisible={!isAlreadyWachedList} />
           </Col>
         ))}
       </Row>
