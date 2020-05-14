@@ -53,10 +53,16 @@ class MovieItem extends Component<Props> {
         <Link className={Styles.link} to={`/movie/${movie.title}`}>
           <span className={Styles.innerLink}>
             {isAddToWatchlistVisible && <button className={buttonTopClassNames} onClick={this.handleAddToWatchlist}>
+              <span className={Styles.labelWithIcon}>
               <span className={Styles.icon}>{heart}</span>
+                <span className={Styles.label}>Add to watchlist</span>
+              </span>
             </button>}
             {isMarkAsWatchedVisible && <button className={buttonBottomClassNames} onClick={this.handleMarkAsWatched}>
-              <span className={Styles.icon}>{check}</span>
+              <span className={Styles.labelWithIcon}>
+                <span className={Styles.icon}>{check}</span>
+                <span className={Styles.label}>Mark as watched</span>
+              </span>
             </button>}
             <img className={Styles.cover} src={movieCover} alt={movie.title} />
           </span>
