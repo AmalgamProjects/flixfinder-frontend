@@ -39,7 +39,7 @@ jobs:
       run: |
         yarn
       env:
-        CI: true
+        CI: false
     - name: Yarn Build (develop)
       working-directory: ${{ github.workspace }}/frontend/
       env:
@@ -61,7 +61,7 @@ jobs:
     - name: Yarn Build (production)
       working-directory: ${{ github.workspace }}/frontend/
       env:
-        CI: true
+        CI: false
         WORKSPACE: ${{ github.workspace }}
         REACT_APP_FIREBASE_APP_ID: 1:82969337644:web:0f67863aa9981e5af2d689
         REACT_APP_FIREBASE_API_KEY: AIzaSyBmSwQCW0kg8mZyAJGVZEzUApVT-eIzN-s

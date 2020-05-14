@@ -1,7 +1,6 @@
 export interface IMovie {
-  title: string;
   id: string;
-  url?: string;
-  imageUrl: string;
+  title: string;
   user: string; // this is firebase uid
+  imageUrl: string;
 }
