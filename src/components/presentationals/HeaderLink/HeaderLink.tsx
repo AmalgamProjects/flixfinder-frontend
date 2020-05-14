@@ -11,13 +11,13 @@ interface IOwnProps {
 }
 
 const HeaderLink: React.FC<IOwnProps> = ({ label, icon, url, pathname }) => {
-  const wrapper = cx({
+  const wrapperClassNames = cx({
     [Styles.wrapper]: true,
     [Styles.wrapperCurrent]: pathname === url
   });
 
   return (
-    <div className={wrapper}>
+    <div className={wrapperClassNames}>
       <Link to={url}>
         <span className={Styles.icon}>{icon}</span>
         <span className={Styles.label}>{label}</span>

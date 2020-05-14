@@ -8,7 +8,7 @@ interface IOwnProps {
 }
 
 const Heading: React.FC<IOwnProps> = ({ title, size }) => {
-  const heading = cx({
+  const headingClassNames = cx({
     [Styles.heading]: true,
     [Styles.headingBig]: size === 'big',
     [Styles.headingSmall]: size === 'small',
@@ -16,7 +16,7 @@ const Heading: React.FC<IOwnProps> = ({ title, size }) => {
 
   return (
     <div className={Styles.wrapper}>
-      <h1 className={heading}>{title}</h1>
+      <h1 className={headingClassNames}>{title}</h1>
     </div>);
 };
 
