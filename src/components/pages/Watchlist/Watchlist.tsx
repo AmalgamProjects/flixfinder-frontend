@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import { Layout, Container, MyWatchlist, AlreadyWatched } from '../../containers';
 import Styles from './Watchlist.module.scss';
-import { TabItem, Empty } from '../../presentationals';
-import { heart, check } from '../../../assets/icons';
+import { TabItem } from '../../presentationals';
 
 class Watchlist extends Component {
   state = {
