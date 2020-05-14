@@ -8,7 +8,6 @@ export { default as InputField } from './InputField/InputField';
 export { default as InteractionIcon } from './InteractionIcon/InteractionIcon';
 export { default as LikeOverlay } from './LikeOverlay/LikeOverlay';
 export { default as Logo } from './Logo/Logo';
-export { default as MovieItem } from './MovieItem/MovieItem';
 export { default as Paragraph } from './Paragraph/Paragraph';
 export { default as Rate } from './Rate/Rate';
 export { default as SearchInput } from './SearchInput/SearchInput';
