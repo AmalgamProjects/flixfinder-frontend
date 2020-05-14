@@ -2,22 +2,22 @@ import { ILoginSuccessAction, ActionTypes } from '../actions';
 import { createReducer } from '../../../../helpers/reducer';
 import { FirebaseUser } from '../../../../types/user';
 
-export type ILoginState = {
+export type IAuthState = {
   user: FirebaseUser | null;
 }
 
-const initialState: ILoginState = {
+const initialState: IAuthState = {
   user: null,
 };
 
-function handleLoginSuccess(state: ILoginState, action: ILoginSuccessAction) {
+function handleLoginSuccess(state: IAuthState, action: ILoginSuccessAction) {
   return {
     ...state,
     user: { ...action.payload },
   };
 }
 
-function handleLogoutSuccess(state: ILoginState) {
+function handleLogoutSuccess(state: IAuthState) {
   return {
     ...state,
     user: null,

@@ -9,7 +9,7 @@ import rootSaga from './sagas';
 const persistConfig = {
   key: 'Auth',
   storage,
-  whitelist: ['UserReducer', 'displayName'],
+  whitelist: ['Auth', 'displayName'],
 };
 
 const sagaMiddleware = createSagaMiddleware();

@@ -3,6 +3,7 @@ import authSagas from './auth/saga';
 import moviesSaga from '../components/containers/Movies/sagas';
 import movieDetailsSaga from '../components/containers/MovieDetails/sagas';
 import loginSaga from '../components/containers/Auth/sagas';
+import userDataSaga from './userData/sagas';
 
 export default function* rootSaga() {
   const sagas = [
@@ -10,6 +11,7 @@ export default function* rootSaga() {
     moviesSaga(),
     movieDetailsSaga(),
     loginSaga(),
+    userDataSaga(),
   ];
   yield all(sagas);
 }

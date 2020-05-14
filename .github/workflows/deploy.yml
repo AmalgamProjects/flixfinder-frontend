@@ -45,6 +45,7 @@ jobs:
       env:
         CI: false
         WORKSPACE: ${{ github.workspace }}
+        REACT_APP_API_URL: https://flixfinder-develop.uc.r.appspot.com/api
         REACT_APP_FIREBASE_APP_ID: 1:448246272078:web:119efaa4c633b6d3abb31f
         REACT_APP_FIREBASE_API_KEY: AIzaSyDtATAahIYl_iAHl-PjAEd8vrLZiZtM0bA
         REACT_APP_FIREBASE_AUTH_DOMAIN: flixfinder-develop.firebaseapp.com

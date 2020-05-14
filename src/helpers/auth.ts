@@ -7,8 +7,8 @@ export const clearAuthData = () => {
 
 export const getAuthData = (): FirebaseUser | null => {
   try {
-    const auth = JSON.parse(localStorage.getItem('persist:Auth') || '');
-    return JSON.parse(auth.UserReducer).user;
+    const persited = JSON.parse(localStorage.getItem('persist:Auth') || '');
+    return JSON.parse(persited.Auth).user;
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(err);
