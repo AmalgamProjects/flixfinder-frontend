@@ -3,7 +3,9 @@ import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 import Styles from './Slider.module.scss';
 import { arrow } from '../../../assets/icons';
-import { SliderElement } from '../../presentationals';
+import { FullWidthMovie } from '../../presentationals';
+import Container from '../Container/Container';
+import movieTestBackground from '../../../assets/images//movie-background-test.jpg';
 
 interface IOwnProps {
 }
@@ -13,7 +15,12 @@ type Props = IOwnProps;
 class Slider extends Component<Props> {
   render() {
     return (
-      <div>
+      <div className={Styles.wrapper}>
+        <div className={Styles.titleWrapper}>
+          <Container>
+            <h1 className={Styles.heading}>Top picks</h1>
+          </Container>
+        </div>
         <Carousel
           arrowLeft={<div className={Styles.arrowLeft}>{arrow}</div>}
           arrowRight={<div className={Styles.arrowRight}>{arrow}</div>}
@@ -21,8 +28,16 @@ class Slider extends Component<Props> {
           draggable={false}
           infinite
         >
-          <SliderElement />
-          <SliderElement />
+          <FullWidthMovie
+            title="Movie title 1"
+            background={movieTestBackground}
+            details="2012"
+          />
+          <FullWidthMovie
+            title="Movie title 2"
+            background={movieTestBackground}
+            details="1998"
+          />
         </Carousel>
       </div>
     );
