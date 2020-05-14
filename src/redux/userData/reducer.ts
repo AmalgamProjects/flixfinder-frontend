@@ -11,6 +11,7 @@ const initialState: IUserData = {
   favourites: [],
   seen: [],
   watch: [],
+  recommended: [],
 };
 
 function handleOnLoadSuccess(state: IUserData, action: ILoadUserDataSuccessAction) {

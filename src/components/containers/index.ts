@@ -22,3 +22,4 @@ export { default as Slider } from './Slider/Slider';
 export { default as MyWatchlist } from './MyWatchlist/MyWatchlist';
 export { default as AlreadyWatched } from './AlreadyWatched/AlreadyWatched';
 export { default as MovieItem } from './MovieItem/MovieItem';
+export { default as Recommended } from './Recommended/Recommended';

@@ -1,13 +1,11 @@
 .wrapper {
   padding-top: 80px;
-  display: flex;
-  justify-content: center;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  justify-content: center;
 }
 
 .tabTitles {
