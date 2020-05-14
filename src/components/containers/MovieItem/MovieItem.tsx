@@ -8,6 +8,9 @@ import { IUserData } from '../../../types/userData';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import Styles from './MovieItem.module.scss';
+import cx from 'classnames';
+import { relative } from 'path';
+import { heart, check } from '../../../assets/icons';
 
 interface IOwnProps {
   movie: IMovie;
@@ -33,15 +36,28 @@ class MovieItem extends Component<Props> {
   render() {
     const { movie } = this.props;
     const movieCover = movie.imageUrl ? movie.imageUrl : 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg';
+    const buttonTopClassNames = cx({
+      [Styles.button]: true,
+      [Styles.buttonTop]: true
+    });
+
+    const buttonBottomClassNames = cx({
+      [Styles.button]: true,
+      [Styles.buttonBottom]: true
+    });
 
     return (
       <div className={Styles.wrapper}>
-
-        <button onClick={this.handleAddToWatchlist}>add to watchlist</button>
-        <button onClick={this.handleMarkAsWatched}>mark as watched</button>
-
         <Link className={Styles.link} to={`/movie/${movie.title}`}>
-          <img className={Styles.cover} src={movieCover} alt={movie.title} />
+          <span className={Styles.innerLink}>
+            <button className={buttonTopClassNames} onClick={this.handleAddToWatchlist}>
+              <span className={Styles.icon}>{heart}</span>
+            </button>
+            <button className={buttonBottomClassNames} onClick={this.handleMarkAsWatched}>
+              <span className={Styles.icon}>{check}</span>
+            </button>
+            <img className={Styles.cover} src={movieCover} alt={movie.title} />
+          </span>
           <span className={Styles.title}>{movie.title}</span>
         </Link>
       </div>
