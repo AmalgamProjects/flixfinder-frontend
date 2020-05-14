@@ -73,14 +73,14 @@ class MovieDetails extends Component<Props> {
                 <div className={Styles.review}>
                   <Review
                     rating="8.9/10"
-                    review="The firstst 45 minutes fasten your seatbelts because classic Tarantino kicks in."
+                    review="Cinematography - great, acting - great. Music- reused already written works. Plot - none. Just almost 3+ hours worth of some random scenes stiched together without leading anywhere. Watched it twice. Has not changed my opinion. By the time it ended I did not care anymore, I just wanted to pee!!! After sitting there for almost 3 hours. What was the point of this movie? Still wondering. One of the Tarantino's worst (if not worst!)."
                     user="carlvan1977 - 27 July 2019"
                   />
                 </div>
                 <div className={Styles.review}>
                   <Review
                     rating="8.9/10"
-                    review="The fir last 45 minutes fasten your seatbelts because classic Tarantino kicks in."
+                    review="The first 2 hours is only for lovers of everything late 60s retro, great cinematography and outstanding acting. The last 45 minutes fasten your seatbelts because classic Tarantino kicks in."
                     user="carlvan1977 - 27 July 2019"
                   />
                 </div>
