@@ -8,6 +8,9 @@ import { IUserData } from '../../../types/userData';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import Styles from './MovieItem.module.scss';
+import cx from 'classnames';
+import { heart, check } from '../../../assets/icons';
+import { TileButton } from '../../presentationals';
 
 interface IOwnProps {
   movie: IMovie;
@@ -35,15 +38,33 @@ class MovieItem extends Component<Props> {
   render() {
     const { movie, isAddToWatchlistVisible = true, isMarkAsWatchedVisible = true } = this.props;
     const movieCover = movie.imageUrl ? movie.imageUrl : 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg';
+    const buttonTopClassNames = cx({
+      [Styles.button]: true,
+      [Styles.buttonTop]: true
+    });
+
+    const buttonBottomClassNames = cx({
+      [Styles.button]: true,
+      [Styles.buttonBottom]: true
+    });
 
     return (
       <div className={Styles.wrapper}>
 
-        {isAddToWatchlistVisible && <button onClick={this.handleAddToWatchlist}>add to watchlist</button>}
-        {isMarkAsWatchedVisible && <button onClick={this.handleMarkAsWatched}>mark as watched</button>}
-
         <Link className={Styles.link} to={`/movie/${movie.title}`}>
-          <img className={Styles.cover} src={movieCover} alt={movie.title} />
+          <span className={Styles.innerLink}>
+            {isAddToWatchlistVisible &&
+              <span className={Styles.buttonTop}>
+                <TileButton label="Add to watchlist" icon={heart} onClick={this.handleAddToWatchlist} />
+              </span>
+            }
+            {isMarkAsWatchedVisible &&
+              <span className={Styles.buttonBottom}>
+                <TileButton label="Mark as watched" icon={check} onClick={this.handleMarkAsWatched} />
+              </span>}
+
+            <img className={Styles.cover} src={movieCover} alt={movie.title} />
+          </span>
           <span className={Styles.title}>{movie.title}</span>
         </Link>
       </div>
