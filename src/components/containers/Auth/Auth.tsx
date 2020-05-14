@@ -3,13 +3,13 @@ import { withRouter, RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { login, logout } from './actions';
-import { ILoginState } from './reducers';
+import { IAuthState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { FirebaseUser } from '../../../types/user';
 import { FirebaseAuth } from '..';
 
 interface IOwnProps {}
-interface IConnectedProps { state: ILoginState; }
+interface IConnectedProps { state: IAuthState; }
 interface IConnectedDispatchProps {
   onLogin: typeof login;
   onLogout: typeof logout;
@@ -46,7 +46,7 @@ class Login extends Component<Props> {
 
 export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRootState>(
   (state: IRootState) => ({
-    state: state.UserReducer,
+    state: state.Auth,
   }),
   (dispatch: Dispatch) => ({
     onLogin: params => dispatch(login(params)),

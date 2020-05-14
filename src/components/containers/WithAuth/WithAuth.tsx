@@ -2,10 +2,10 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router';
 import { IRootState } from '../../../types/redux';
-import { ILoginState } from '../Auth/reducers';
+import { IAuthState } from '../Auth/reducers';
 
 interface IOwnProps {}
-interface IConnectedProps { state: ILoginState; }
+interface IConnectedProps { state: IAuthState; }
 interface IConnectedDispatchProps {}
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps;
 
@@ -44,5 +44,5 @@ class WithAuth extends Component<Props> {
 }
 
 export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRootState>(
-  (state: IRootState) => ({ state: state.UserReducer }),
+  (state: IRootState) => ({ state: state.Auth }),
 )(withRouter(WithAuth));
