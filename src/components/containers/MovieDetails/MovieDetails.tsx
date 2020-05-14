@@ -30,21 +30,20 @@ class MovieDetails extends Component<Props> {
     }
   }
   render() {
-    const { movie } = this.props.state;
+    // const { movie } = this.props.state;
 
     return (
       <Fragment>
         <div className={Styles.fullWidthMovie}>
-          {movie && movie.title &&
-            <FullWidthMovie
-              isSingleMovie
-              title={movie.title}
-              background={movieTestBackground}
-              details="R | 2h 41min | Comedy, Drama | 26 July 2019 (USA)"
-              director="Quentin Tarantino"
-              writer="Quentin Tarantino"
-              starring="Leonardo DiCaprio, Brad Pitt, Margot Robbie"
-            />}
+          <FullWidthMovie
+            isSingleMovie
+            title="Once Upon a Time... in Hollywood"
+            background={movieTestBackground}
+            details="R | 2h 41min | Comedy, Drama | 26 July 2019 (USA)"
+            director="Quentin Tarantino"
+            writer="Quentin Tarantino"
+            starring="Leonardo DiCaprio, Brad Pitt, Margot Robbie"
+          />
         </div>
 
         <div className={Styles.wrapper}>
@@ -94,12 +93,12 @@ class MovieDetails extends Component<Props> {
           <Container>
             <ContentWithHeader heading="More Like This">
               <Row>
-                <Col><MovieItem movie={ { id: '1', user: '1', title: 'Awesome movie (1)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
-                <Col><MovieItem movie={ { id: '1', user: '2', title: 'Awesome movie (2)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
-                <Col><MovieItem movie={ { id: '1', user: '3', title: 'Awesome movie (3)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
-                <Col><MovieItem movie={ { id: '1', user: '4', title: 'Awesome movie (4)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
-                <Col><MovieItem movie={ { id: '1', user: '5', title: 'Awesome movie (5)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
-                <Col><MovieItem movie={ { id: '1', user: '6', title: 'Awesome movie (6)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                <Col><MovieItem movie={{ id: '1', user: '1', title: 'Awesome movie (1)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                <Col><MovieItem movie={{ id: '1', user: '2', title: 'Awesome movie (2)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                <Col><MovieItem movie={{ id: '1', user: '3', title: 'Awesome movie (3)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                <Col><MovieItem movie={{ id: '1', user: '4', title: 'Awesome movie (4)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                <Col><MovieItem movie={{ id: '1', user: '5', title: 'Awesome movie (5)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
+                <Col><MovieItem movie={{ id: '1', user: '6', title: 'Awesome movie (6)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' }} /></Col>
               </Row>
             </ContentWithHeader>
           </Container>
