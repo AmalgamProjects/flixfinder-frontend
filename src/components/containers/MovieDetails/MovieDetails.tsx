@@ -23,9 +23,9 @@ class MovieDetails extends Component<Props> {
     const { movie } = this.props.state;
 
     return (
-        <div>
-          {movie && movie.title}
-        </div>
+      <div>
+        {movie && movie.title}
+      </div>
     );
   }
 }

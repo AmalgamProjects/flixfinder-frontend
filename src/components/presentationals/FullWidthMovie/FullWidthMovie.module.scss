@@ -5,9 +5,9 @@
   height: 660px;
   justify-content: center;
   background-size: cover;
-  align-items: center;
-  padding: 0 90px;
+  align-items: flex-end;
   background-repeat: no-repeat;
+  padding: 0 90px;
 
   @media (min-width: 1380px) {
     padding: 0;
@@ -24,72 +24,66 @@
     z-index: 1;
     background: #000;
   }
+
+  &SingleMovie {
+    padding: 0;
+  }
 }
 
 .innerWrapper {
   display: flex;
   justify-content: center;
   width: 100%;
+
+  &SingleMovie {
+    align-items: center;
+    height: 100%;
+  }
 }
 
 .content {
   position: relative;
   z-index: 2;
   display: flex;
+  padding-bottom: 98px;
+
+  &SingleMovie {
+    padding-bottom: 0;
+  }
 }
 
 .poster {
-  width: 100%;
-  display: block;
-}
+  display: none;
 
-.paragraph {
-  font-size: 16px;
-  letter-spacing: -0.4px;
-  color: #fff;
-  margin: 0 0 10px 0;
-  line-height: normal;
+  @media (min-width: 970px) {
+    display: block;
+  }
 }
 
 .details {
   display: flex;
   justify-content: flex-end;
-  padding: 0 30px;
+  padding: 0;
   max-width: 450px;
   width: 100%;
   flex-direction: column;
+  position: relative;
+  position: relative;
+
+  @media (min-width: 970px) {
+    padding: 0 30px;
+  }
+
+  &SingleMovie {
+    max-width: 745px;
+    justify-content: space-between;
+  }
 }
 
-.moreDetails {
+.buttons {
   display: flex;
-  margin-bottom: 15px;
-}
 
-.heading {
-  font-size: 48px;
-  font-weight: bold;
-  letter-spacing: -1.2px;
-  color: #fff;
-  margin-bottom: 40px;
-}
-
-.title {
-  font-size: 32px;
-  font-weight: bold;
-  letter-spacing: -0.8px;
-  color: #fff;
-  margin: 15px 0;
-}
-
-.rating {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.ratingIcon {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 5px;
+  button:last-of-type {
+    margin-left: 20px;
+  }
 }

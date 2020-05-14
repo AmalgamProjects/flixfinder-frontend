@@ -18,5 +18,7 @@ export { default as Tag } from './Tag/Tag';
 export { default as ScrollToTopOnMount } from './ScrollToTopOnMount/ScrollToTopOnMount';
 export { default as HeaderLink } from './HeaderLink/HeaderLink';
 export { default as Empty } from './Empty/Empty';
-export { default as SliderElement } from './SliderElement/SliderElement';
+export { default as FullWidthMovie } from './FullWidthMovie/FullWidthMovie';
 export { default as MoviesSectionList } from './MoviesSectionList/MoviesSectionList';
+export { default as MovieDetails } from './MovieDetails/MovieDetails';
+export { default as TileButton } from './TileButton/TileButton';

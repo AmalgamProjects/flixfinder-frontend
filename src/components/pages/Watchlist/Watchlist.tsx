@@ -30,12 +30,12 @@ class Watchlist extends Component {
             <div className={Styles.content}>
               <ul className={Styles.tabTitles}>
                 {tabTitles.map((item) => {
-                  const tabTitle = cx({
+                  const tabTitleClassNames = cx({
                     [Styles.tabTitle]: true,
                     [Styles.tabTitleCurrent]: item.id === selectedIndex,
                   });
 
-                  return <li key={item.id} className={tabTitle} onClick={() => this.handleTabTitlClick(item.id)}>{item.title}</li>;
+                  return <li key={item.id} className={tabTitleClassNames} onClick={() => this.handleTabTitlClick(item.id)}>{item.title}</li>;
                 })}
               </ul>
               <div className={Styles.tabs}>
