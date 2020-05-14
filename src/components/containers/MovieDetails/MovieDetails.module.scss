@@ -1,0 +1,45 @@
+.fullWidthMovie {
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.text {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: #636363;
+}
+
+.cast {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  border-bottom: 1px solid #ebebeb;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.review {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 40px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
