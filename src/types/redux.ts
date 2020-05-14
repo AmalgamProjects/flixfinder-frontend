@@ -1,6 +1,7 @@
 import { IMoviesState } from '../components/containers/Movies/reducers';
-import { ILoginState } from '../components/containers/Auth/reducers';
+import { IAuthState } from '../components/containers/Auth/reducers';
 import { IMovieDetailsState } from '../components/containers/MovieDetails/reducers';
+import { IUserData } from './userData';
 
 export interface IBaseAction {
   type: string;
@@ -10,5 +11,6 @@ export interface IBaseAction {
 export interface IRootState {
   MoviesReducer: IMoviesState;
   MovieDetailsReducer: IMovieDetailsState;
-  UserReducer: ILoginState;
+  Auth: IAuthState;
+  UserData: IUserData;
 }

@@ -4,10 +4,10 @@ import { Layout, Auth, Container } from '../../containers';
 import Styles from './MyProfile.module.scss';
 import { Heading } from '../../presentationals';
 import { envelope } from '../../../assets/icons';
-import { ILoginState } from '../../containers/Auth/reducers';
+import { IAuthState } from '../../containers/Auth/reducers';
 import { IRootState } from '../../../types/redux';
 
-interface IConnectedProps { state: ILoginState; }
+interface IConnectedProps { state: IAuthState; }
 type Props = IConnectedProps;
 
 class MyProfile extends Component<Props> {
@@ -37,6 +37,6 @@ class MyProfile extends Component<Props> {
 
 export default connect<IConnectedProps, {}, {}, IRootState>(
   (state: IRootState) => ({
-    state: state.UserReducer,
+    state: state.Auth,
   }),
 )(MyProfile);

@@ -113,7 +113,7 @@ class MovieDetails extends Component<Props> {
 export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRootState>(
   (state: IRootState) => ({
     state: state.MovieDetailsReducer,
-    user: state.UserReducer,
+    user: state.Auth,
   }),
   (dispatch: Dispatch) => ({
     onLoadData: params => dispatch(loadData(params)),

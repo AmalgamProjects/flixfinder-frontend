@@ -41,7 +41,14 @@ class FirebaseAuth extends React.Component<IOwnProps> {
   handleSignIn = () => {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithPopup(googleAuthProvider);
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+      .then(() => {
+        return firebase.auth().signInWithPopup(googleAuthProvider);
+      })
+      .catch(error => {
+        // eslint-disable-next-line no-console
+        console.log(error);
+      });
   };
 
   handleSignOut = () => {
