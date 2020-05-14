@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { IMovie } from '../../../types/movie';
-import { Container, Row, Col } from '../../containers';
-import { MovieItem, Heading } from '..';
+import { Container, Row, Col, MovieItem } from '../../containers';
+import { Heading } from '..';
 import Styles from './MoviesSectionList.module.scss';
 
 interface IOwnProps {

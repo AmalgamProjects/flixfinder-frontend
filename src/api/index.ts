@@ -1,6 +1,6 @@
 import { IApi } from '../types/api';
 import { fetchMovies, fetchMovieDetails } from './movies';
-import { fetchUserData } from './userData';
+import { fetchUserData, addToWatchList, markAsWatched } from './userData';
 
 class Api implements IApi {
   fetchMovies = fetchMovies;
@@ -8,6 +8,10 @@ class Api implements IApi {
   fetchUserData = fetchUserData;
 
   fetchMovieDetails = fetchMovieDetails;
+
+  addToWatchList = addToWatchList;
+
+  markAsWatched = markAsWatched;
 }
 
 export default Api;
