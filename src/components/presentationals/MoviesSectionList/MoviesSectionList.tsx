@@ -23,15 +23,21 @@ const MoviesSectionList: React.FC<IOwnProps> = ({ title, movies, path, isWatchli
         )}
       </div>
     </Container>
-    <Container>
-      <Row>
-        {movies && movies.map(movie => (
-          <Col key={movie.title}>
-            <MovieItem movie={movie} isAddToWatchlistVisible={!isWatchlist && !isAlreadyWachedList} isMarkAsWatchedVisible={!isAlreadyWachedList} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    {movies && movies.length !== 0 && (
+      <Container>
+        <Row>
+          {movies.map(movie => (
+            <Col key={movie.title}>
+              <MovieItem
+                movie={movie}
+                isAddToWatchlistVisible={!isWatchlist && !isAlreadyWachedList}
+                isMarkAsWatchedVisible={!isAlreadyWachedList}
+              />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    )}
   </div>
 );
 

@@ -7,4 +7,5 @@ export interface IUserData {
   favourites: IMovie[];
   seen: IMovie[];
   watch: IMovie[];
+  recommended: IMovie[];
 }

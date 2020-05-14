@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Styles from './MovieDetails.module.scss';
 import cx from 'classnames';
+import Styles from './MovieDetails.module.scss';
 import { ratings } from '../../../assets/icons';
 
 interface IOwnProps {
