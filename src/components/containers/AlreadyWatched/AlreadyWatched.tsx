@@ -25,7 +25,7 @@ class AlreadyWatched extends Component<Props> {
     return (
         <Fragment>
           {seen && seen.length > 0 && (
-            <MoviesSectionList movies={seen} title="Movies" />
+            <MoviesSectionList movies={seen} title="Movies" isAlreadyWachedList />
           )}
           {(!seen || !seen.length) && (
             <Empty>
