@@ -10,6 +10,7 @@ import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import Styles from './MovieItem.module.scss';
 import cx from 'classnames';
 import { heart, check } from '../../../assets/icons';
+import { TileButton } from '../../presentationals';
 
 interface IOwnProps {
   movie: IMovie;
@@ -52,18 +53,16 @@ class MovieItem extends Component<Props> {
 
         <Link className={Styles.link} to={`/movie/${movie.title}`}>
           <span className={Styles.innerLink}>
-            {isAddToWatchlistVisible && <button type="button" className={buttonTopClassNames} onClick={this.handleAddToWatchlist}>
-              <span className={Styles.labelWithIcon}>
-              <span className={Styles.icon}>{heart}</span>
-                <span className={Styles.label}>Add to watchlist</span>
+            {isAddToWatchlistVisible &&
+              <span className={Styles.buttonTop}>
+                <TileButton label="Add to watchlist" icon={heart} onClick={this.handleAddToWatchlist} />
               </span>
-            </button>}
-            {isMarkAsWatchedVisible && <button type="button" className={buttonBottomClassNames} onClick={this.handleMarkAsWatched}>
-              <span className={Styles.labelWithIcon}>
-                <span className={Styles.icon}>{check}</span>
-                <span className={Styles.label}>Mark as watched</span>
-              </span>
-            </button>}
+            }
+            {isMarkAsWatchedVisible &&
+              <span className={Styles.buttonBottom}>
+                <TileButton label="Mark as watched" icon={check} onClick={this.handleMarkAsWatched} />
+              </span>}
+
             <img className={Styles.cover} src={movieCover} alt={movie.title} />
           </span>
           <span className={Styles.title}>{movie.title}</span>

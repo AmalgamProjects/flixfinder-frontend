@@ -49,8 +49,8 @@ const FullWidthMovie: React.FC<IOwnProps> = ({ director, starring, writer, isSin
             <div className={detailsClassNames}>
               {isSingleMovie &&
                 <div className={Styles.buttons}>
-                  <TileButton label="Add to watchlist" icon={heart} />
-                  <TileButton label="Marked as watched" icon={check} />
+                  <TileButton expanded onClick={() => {}} label="Add to watchlist" icon={heart} />
+                  <TileButton expanded onClick={() => {}} label="Marked as watched" icon={check} />
                 </div>}
               <MovieDetails
                 title={title}
