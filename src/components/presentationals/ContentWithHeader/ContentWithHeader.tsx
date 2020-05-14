@@ -8,7 +8,7 @@ interface IOwnProps {
 
 const ContentWithHeader: React.FC<IOwnProps> = ({ heading, children }) => {
   return (
-    <div style={{ width: '100%' }}>
+    <div className={Styles.wrapper}>
       <Heading size="small" title={heading} />
       <div className={Styles.children}>
         {children}
