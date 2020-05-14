@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Layout, Login, Container } from '../../containers';
+import { connect } from 'react-redux';
+import { Layout, Auth, Container } from '../../containers';
 import Styles from './MyProfile.module.scss';
 import { Heading } from '../../presentationals';
 import { envelope } from '../../../assets/icons';
-import { ILoginState } from '../../containers/Login/reducers';
-import { connect } from 'react-redux';
+import { ILoginState } from '../../containers/Auth/reducers';
 import { IRootState } from '../../../types/redux';
 
 interface IConnectedProps { state: ILoginState; }
@@ -25,9 +25,7 @@ class MyProfile extends Component<Props> {
                   <h2 className={Styles.subHeading}><span className={Styles.icon}>{envelope}</span>Linked Email Account</h2>
                   {state && state.user && state.user.email && <p className={Styles.email}>{state.user.email}</p>}
                 </div>
-                <div>
-                  <Login />
-                </div>
+                <Auth />
               </div>
             </div>
           </Container>

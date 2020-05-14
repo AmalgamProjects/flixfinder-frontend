@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Login as LoginUser } from '../../containers';
+import { Auth } from '../../containers';
 import { Logo } from '../../presentationals';
 
 import Styles from './Login.module.scss';
@@ -33,7 +33,7 @@ const Login: React.FC = () => (
             preferences and provide the most up to date movie recommendations.
           </p>
         </div>
-        <LoginUser />
+        <Auth />
       </div>
     </div>
   </div>
