@@ -1,7 +1,13 @@
 import * as React from 'react';
+import Styles from './Image.module.scss';
 
-const Image: React.FC = () => (
-  <div>Image</div>
+interface IOwnProps {
+  alt: string;
+  url: string;
+}
+
+const Image: React.FC<IOwnProps> = ({ alt, url }) => (
+  <img className={Styles.image} alt={alt} src={url} />
 );
 
 export default Image;
