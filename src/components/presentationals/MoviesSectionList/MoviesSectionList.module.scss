@@ -31,4 +31,14 @@
   padding: 6px 21px;
   align-items: center;
   display: flex;
+
+  @media (max-width: 425px) {
+    flex: 1 0 auto;
+    max-height: 30px;
+  }
+
+  @media (max-width: 321px) {
+    font-size: 12px;
+    padding: 0px 9px;
+  }
 }

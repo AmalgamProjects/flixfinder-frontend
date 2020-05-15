@@ -21,10 +21,18 @@
   &Small {
     font-size: 32px;
     letter-spacing: -0.8px;
+
+    @media (max-width: 425px) {
+      font-size: 27px;
+    }
   }
 
   &Big {
     font-size: 48px;
     letter-spacing: -1.2px;
+
+    @media (max-width: 425px) {
+      font-size: 30px;
+    }
   }
 }
