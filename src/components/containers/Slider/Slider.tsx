@@ -27,6 +27,8 @@ class Slider extends Component<Props> {
           addArrowClickHandler
           draggable={false}
           infinite
+          autoPlay={5000}
+          animationSpeed={800}
         >
           <FullWidthMovie
             title="Movie title 1"
