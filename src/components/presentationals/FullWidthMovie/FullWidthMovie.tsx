@@ -1,9 +1,9 @@
 import * as React from 'react';
+import cx from 'classnames';
 import Styles from './FullWidthMovie.module.scss';
 import { Container } from '../../containers';
-import { MovieDetails, Image, TileButton } from '..'
+import { MovieDetails, Image, TileButton } from '..';
 import movieTestPoster from '../../../assets/images/movie-poster-test.jpg';
-import cx from 'classnames';
 import { heart, check } from '../../../assets/icons';
 
 interface IOwnProps {
@@ -15,27 +15,40 @@ interface IOwnProps {
   director?: string;
   starring?: string;
   writer?: string;
+
+  onAddToWatchlist?: () => void;
+  onMarkAsWatched?: () => void;
 }
 
-const FullWidthMovie: React.FC<IOwnProps> = ({ director, starring, writer, isSingleMovie, details, background, title }) => {
+const FullWidthMovie: React.FC<IOwnProps> = ({
+  director,
+  starring,
+  writer,
+  isSingleMovie,
+  details,
+  background,
+  title,
+  onAddToWatchlist,
+  onMarkAsWatched,
+}) => {
   const wrapperClassNames = cx({
     [Styles.wrapper]: true,
-    [Styles.wrapperSingleMovie]: isSingleMovie
+    [Styles.wrapperSingleMovie]: isSingleMovie,
   });
 
   const innerWrapperClassNames = cx({
     [Styles.innerWrapper]: true,
-    [Styles.innerWrapperSingleMovie]: isSingleMovie
+    [Styles.innerWrapperSingleMovie]: isSingleMovie,
   });
 
   const contentClassNames = cx({
     [Styles.content]: true,
-    [Styles.contentSingleMovie]: isSingleMovie
+    [Styles.contentSingleMovie]: isSingleMovie,
   });
 
   const detailsClassNames = cx({
     [Styles.details]: true,
-    [Styles.detailsSingleMovie]: isSingleMovie
+    [Styles.detailsSingleMovie]: isSingleMovie,
   });
 
   return (
@@ -47,11 +60,12 @@ const FullWidthMovie: React.FC<IOwnProps> = ({ director, starring, writer, isSin
               <Image alt="poster" url={movieTestPoster} />
             </div>
             <div className={detailsClassNames}>
-              {isSingleMovie &&
+              {onAddToWatchlist && onMarkAsWatched && (
                 <div className={Styles.buttons}>
-                  <TileButton expanded onClick={() => {}} label="Add to watchlist" icon={heart} />
-                  <TileButton expanded onClick={() => {}} label="Marked as watched" icon={check} />
-                </div>}
+                  <TileButton expanded onClick={onAddToWatchlist} label="Add to watchlist" icon={heart} />
+                  <TileButton expanded onClick={onMarkAsWatched} label="Marked as watched" icon={check} />
+                </div>
+              )}
               <MovieDetails
                 title={title}
                 details={details}
