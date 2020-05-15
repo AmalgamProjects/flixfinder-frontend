@@ -2,16 +2,15 @@ import React, { Component, Fragment } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { loadData } from './actions';
+import { loadData, clearStore } from './actions';
 import { IMovieDetailsState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { IFirebaseUser } from '../../../types/user';
-import { ContentWithHeader, Person, Review, FullWidthMovie } from '../../presentationals';
-import Styles from './MovieDetails.module.scss';
-import movieTestBackground from '../../../assets/images//movie-background-test.jpg';
+import { ContentWithHeader, Person, Review, FullWidthMovie, YoutubeVideo } from '../../presentationals';
 import { Container, Row, Col, MovieItem } from '..';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
+import Styles from './MovieDetails.module.scss';
 
 interface IOwnProps {
   movieId: string;
@@ -20,6 +19,7 @@ interface IOwnProps {
 interface IConnectedProps { state: IMovieDetailsState; user: IFirebaseUser; }
 interface IConnectedDispatchProps {
   onLoadData: typeof loadData;
+  onClearStore: typeof clearStore;
   onAddToWatchList: typeof addToWatchlist;
   onMarkAsWatched: typeof markAsWatched;
 }
@@ -51,24 +51,25 @@ class MovieDetails extends Component<Props> {
     }
   };
 
+  componentWillUnmount() {
+    const { onClearStore } = this.props;
+
+    onClearStore();
+  }
+
   render() {
     const { state: { movie, isLoading } } = this.props;
-
+    console.log(movie, 'movie')
     return (
       <Fragment>
-        {isLoading && <span>loading...</span>}
         <div className={Styles.fullWidthMovie}>
           {movie && (
             <FullWidthMovie
               isSingleMovie
               onAddToWatchlist={this.handleAddToWatchlist}
               onMarkAsWatched={this.handleMarkAsWatched}
-              title={movie.primaryTitle}
-              background={movieTestBackground}
-              details="R | 2h 41min | Comedy, Drama | 26 July 2019 (USA)"
-              director="Quentin Tarantino"
-              writer="Quentin Tarantino"
-              starring="Leonardo DiCaprio, Brad Pitt, Margot Robbie"
+              movie={movie}
+              isLoading={isLoading}
             />
           )}
         </div>
@@ -77,11 +78,20 @@ class MovieDetails extends Component<Props> {
           <Container>
             <div className={Styles.content}>
 
-              <ContentWithHeader heading="Storyline">
-                <p className={Styles.text}>
-                  Quentin Tarantino's Once Upon a Time... in Hollywood visits 1969 Los Angeles, where everything is changing, as TV star Rick Dalton (Leonardo DiCaprio) and his longtime stunt double Cliff Booth (Brad Pitt) make their way around an industry they hardly recognize anymore. The ninth film from the writer-director features a large ensemble cast and multiple storylines in a tribute to the final moments of Hollywood's golden age.
-                </p>
-              </ContentWithHeader>
+              <Row>
+                <Col cols={movie && movie.youtube_url ? 2 : 1}>
+                  {movie && movie.summary &&
+                    <ContentWithHeader heading="Storyline">
+                      <p className={Styles.text}>{movie?.summary}</p>
+                    </ContentWithHeader>}
+                </Col>
+                {movie && movie.youtube_url &&
+                  <Col cols={2}>
+                    <ContentWithHeader heading="Movie Trailer">
+                      <YoutubeVideo url={movie.youtube_url} />
+                    </ContentWithHeader>
+                  </Col>}
+              </Row>
 
               <ContentWithHeader heading="Cast & Crew">
                 <div className={Styles.cast}>
@@ -139,6 +149,7 @@ export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRoo
   }),
   (dispatch: Dispatch) => ({
     onLoadData: params => dispatch(loadData(params)),
+    onClearStore: () => dispatch(clearStore()),
     onAddToWatchList: (params: IAddToWatchlistParams) => dispatch(addToWatchlist(params)),
     onMarkAsWatched: (params: IMarkAsWatchedParams) => dispatch(markAsWatched(params)),
   }),
