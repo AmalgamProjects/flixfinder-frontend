@@ -31,14 +31,7 @@ export const fetchMovies = (params: IFetchMoviesParams) => {
   const promise = new Promise<IFetchMoviesResponse>(resolve => {
     setTimeout(() => {
       const mockResponse: IFetchMoviesResponse = {
-        movies: [
-          { id: '1', user: '1', title: 'Awesome movie (1)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' },
-          { id: '1', user: '2', title: 'Awesome movie (2)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' },
-          { id: '1', user: '3', title: 'Awesome movie (3)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' },
-          { id: '1', user: '4', title: 'Awesome movie (4)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' },
-          { id: '1', user: '5', title: 'Awesome movie (5)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' },
-          { id: '1', user: '6', title: 'Awesome movie (6)', imageUrl: 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg' },
-        ],
+        movies: [],
       };
       resolve(mockResponse);
     }, 200);
@@ -66,20 +59,6 @@ export const fetchMovies = (params: IFetchMoviesParams) => {
 };
 
 export const fetchMovieDetails = (params: IFetchMovieDetailsParams) => {
-  /* const promise = new Promise<IFetchMovieDetailsResponse>(resolve => {
-    setTimeout(() => {
-      const mockResponse: IFetchMovieDetailsResponse = {
-        movie: {
-          id: params.id,
-          title: `Awesome movie (${params.id})`,
-          imageUrl: 'https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg',
-        },
-      };
-      resolve(mockResponse);
-    }, 200);
-  });
-
-  return promise; */
   const accessToken = getAuthData()?.accessToken;
 
   return axios
@@ -91,7 +70,7 @@ export const fetchMovieDetails = (params: IFetchMovieDetailsParams) => {
           ...accessToken && { Authorization: `Bearer ${accessToken}` },
         },
         // params,
-        url: '/users/rRFgWB4zkoe7QW0Bf9iwtcWCxlV2',
+        url: `/title/${params.id}`,
       },
     )
     .then(res => res.data)

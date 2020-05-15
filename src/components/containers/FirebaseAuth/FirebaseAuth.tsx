@@ -13,11 +13,11 @@ interface IOwnProps {
 
 class FirebaseAuth extends React.Component<IOwnProps> {
   componentDidMount() {
-    const { onLogin } = this.props;
+    const { onLogin, isLoggedIn } = this.props;
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        if (!getAuthData()) {
+        if (!isLoggedIn) {
           const { uid, photoURL, displayName, email, isAnonymous } = user;
 
           user.getIdToken().then(accessToken => {
@@ -42,9 +42,7 @@ class FirebaseAuth extends React.Component<IOwnProps> {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
-      .then(() => {
-        return firebase.auth().signInWithPopup(googleAuthProvider);
-      })
+      .then(() => firebase.auth().signInWithPopup(googleAuthProvider))
       .catch(error => {
         // eslint-disable-next-line no-console
         console.log(error);

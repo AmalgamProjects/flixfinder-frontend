@@ -14,7 +14,6 @@ class WithAuth extends Component<Props> {
 
   componentDidMount() {
     const { state, location } = this.props;
-
     if (location.pathname !== this.loginPathname) {
       if (!state.user) {
         this.redirectToLoginView();
@@ -24,7 +23,6 @@ class WithAuth extends Component<Props> {
 
   componentDidUpdate(prevProps: Props) {
     const { state, location } = this.props;
-
     if (location !== prevProps.location && location.pathname !== this.loginPathname) {
       if (!state.user) {
         this.redirectToLoginView();
