@@ -1,4 +1,4 @@
-import React, { Component, FormEvent } from 'react';
+import React, { Component, FormEvent, ChangeEvent } from 'react';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
@@ -10,6 +10,12 @@ import { loadData, clearSuggestions } from './actions';
 import { IRootState } from '../../../types/redux';
 import { ISearchParams } from '../../../api/search';
 import { IMovie } from '../../../types/movie';
+
+type TitleType = 'movie' | 'tvMovie' | 'tvSeries' | 'tvMiniSeries';
+interface IState {
+  value: string;
+  titleType: TitleType;
+}
 
 interface IOwnProps { }
 interface IConnectedProps { state: ISearchState; }
@@ -31,9 +37,10 @@ const renderSuggestion = (suggestion: any) => (
   </div>
 );
 
-class HeaderSearch extends Component<Props> {
+class HeaderSearch extends Component<Props, IState> {
   state = {
     value: '',
+    titleType: 'movie' as TitleType,
   };
 
   handleSelected = (_event: FormEvent<any>, { suggestion }: any) => {
@@ -42,11 +49,12 @@ class HeaderSearch extends Component<Props> {
   };
 
   handleSearch = (input: SuggestionsFetchRequestedParams) => {
+    const { titleType } = this.state;
     const { onLoadData } = this.props;
     const { value } = input;
 
     if (value && value.length > 4) {
-      onLoadData({ search: value });
+      onLoadData({ search: value, titleType });
     }
   };
 
@@ -61,9 +69,19 @@ class HeaderSearch extends Component<Props> {
     });
   };
 
+  handleTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const { onClearSuggestions } = this.props;
+
+    this.setState({
+      titleType: event.target.value as TitleType,
+    }, () => {
+      onClearSuggestions();
+    });
+  };
+
   render() {
     const { state } = this.props;
-    const { value } = this.state;
+    const { value, titleType } = this.state;
 
     const suggestions = state.results;
 
@@ -76,9 +94,11 @@ class HeaderSearch extends Component<Props> {
     return (
       <div className={Styles.wrapper}>
         <div className={Styles.dropdown}>
-          <select className={Styles.select}>
-            <option>Movies</option>
-            <option>TV shows</option>
+          <select className={Styles.select} onChange={this.handleTypeChange} value={titleType}>
+            <option value="movies">Movies</option>
+            <option value="tvMovie">TV shows</option>
+            <option value="tvSeries">TV series</option>
+            <option value="tvMiniSeries">TV mini series</option>
           </select>
           <div className={Styles.selectIcon}>{caretDown}</div>
         </div>
