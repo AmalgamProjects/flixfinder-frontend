@@ -30,7 +30,7 @@ function handleOnLoadSuccess(state: ISearchState, action: ILoadSearchSuccessActi
   return {
     ...state,
     ...(action.payload && { ...action.payload }),
-    isLoading: false
+    isLoading: false,
   };
 }
 

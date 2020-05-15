@@ -4,14 +4,14 @@ import { Dispatch } from 'redux';
 import { loadData } from '../../../redux/userData/actions';
 import { IRootState } from '../../../types/redux';
 import { MoviesSectionList } from '../../presentationals';
-import { IUserData } from '../../../types/userData';
+import { IUserDataState } from '../../../redux/userData/reducer';
 import Styles from './Recommended.module.scss';
 
 interface IOwnProps {
   title: string;
   path?: string;
 }
-interface IConnectedProps { state: IUserData; }
+interface IConnectedProps { state: IUserDataState; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
 
