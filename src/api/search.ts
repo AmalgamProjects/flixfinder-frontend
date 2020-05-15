@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { CANCEL } from 'redux-saga';
 import settings from '../settings';
 import { getAuthData } from '../helpers/auth';
 import { ISearchResponse } from '../types/search';
@@ -16,8 +17,10 @@ export interface IFetchSearch {
 export const search = (params: ISearchParams) => {
   const baseURL = settings.apiUrl;
   const accessToken = getAuthData()?.accessToken;
+  const cancelToken = axios.CancelToken;
+  const source = cancelToken.source();
 
-  return axios
+  const request = axios
     .request<ISearchResponse>(
       {
         baseURL,
@@ -27,7 +30,7 @@ export const search = (params: ISearchParams) => {
           ...accessToken && { Authorization: `Bearer ${accessToken}` },
         },
         url: '/title/',
-        // cancelToken: apiInstance.source.token,
+        cancelToken: source.token,
       },
     )
     .then(res => res.data)
@@ -36,4 +39,9 @@ export const search = (params: ISearchParams) => {
       console.error('error: ', error);
       return null;
     });
+
+  // @ts-ignore
+  request[CANCEL] = () => source.cancel();
+
+  return request;
 };

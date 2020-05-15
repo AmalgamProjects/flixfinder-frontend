@@ -4,12 +4,12 @@ import { Dispatch } from 'redux';
 import { loadData } from '../../../redux/userData/actions';
 import { IRootState } from '../../../types/redux';
 import { MoviesSectionList, Empty } from '../../presentationals';
-import { IUserData } from '../../../types/userData';
+import { IUserDataState } from '../../../redux/userData/reducer';
 import { check } from '../../../assets/icons';
 import Styles from './AlreadyWatched.module.scss';
 
 interface IOwnProps { }
-interface IConnectedProps { state: IUserData; }
+interface IConnectedProps { state: IUserDataState; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
 

@@ -10,13 +10,15 @@ import { ContentWithHeader, Person, Review, FullWidthMovie, YoutubeVideo, Spinne
 import { Container, Row, Col, MovieItem } from '..';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
+import { IFetchMovieDetailsParams } from '../../../api/movies';
+import { IUserDataState } from '../../../redux/userData/reducer';
 import Styles from './MovieDetails.module.scss';
 
 interface IOwnProps {
   movieId: string;
 }
 
-interface IConnectedProps { state: IMovieDetailsState; user: IFirebaseUser; }
+interface IConnectedProps { state: IMovieDetailsState; auth: IFirebaseUser; user: IUserDataState }
 interface IConnectedDispatchProps {
   onLoadData: typeof loadData;
   onClearStore: typeof clearStore;
@@ -38,16 +40,16 @@ class MovieDetails extends Component<Props> {
   }
 
   handleAddToWatchlist = () => {
-    const { state, onAddToWatchList, user: userState } = this.props;
-    if (userState && userState.user && state.movie) {
-      onAddToWatchList({ title: state.movie.id, user: userState.user.uid });
+    const { state, onAddToWatchList, auth } = this.props;
+    if (auth && auth.user && state.movie) {
+      onAddToWatchList({ title: state.movie.id, user: auth.user.uid });
     }
   };
 
   handleMarkAsWatched = () => {
-    const { state, onMarkAsWatched, user: userState } = this.props;
-    if (userState && userState.user && state.movie) {
-      onMarkAsWatched({ title: state.movie.id, user: userState.user.uid });
+    const { state, onMarkAsWatched, auth } = this.props;
+    if (auth && auth.user && state.movie) {
+      onMarkAsWatched({ title: state.movie.id, user: auth.user.uid });
     }
   };
 
@@ -58,19 +60,21 @@ class MovieDetails extends Component<Props> {
   }
 
   render() {
-    const { state: { movie, isLoading } } = this.props;
-    console.log(movie, 'movie');
+    const { state: { movie, isLoading }, user } = this.props;
 
     return (
       <Fragment>
         <div className={Styles.fullWidthMovie}>
-          {isLoading &&
+          {isLoading && (
             <div className={Styles.loader}>
               <Spinner />
-            </div>}
+            </div>
+          )}
           {movie && (
             <FullWidthMovie
               isSingleMovie
+              isAddToWatchlistLoading={user.isAddToWatchlistLoading}
+              isMarkAsWatchedLoading={user.isMarkAsWatchedLoading}
               onAddToWatchlist={this.handleAddToWatchlist}
               onMarkAsWatched={this.handleMarkAsWatched}
               movie={movie}
@@ -149,10 +153,11 @@ class MovieDetails extends Component<Props> {
 export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRootState>(
   (state: IRootState) => ({
     state: state.MovieDetailsReducer,
-    user: state.Auth,
+    user: state.UserData,
+    auth: state.Auth,
   }),
   (dispatch: Dispatch) => ({
-    onLoadData: params => dispatch(loadData(params)),
+    onLoadData: (params: IFetchMovieDetailsParams) => dispatch(loadData(params)),
     onClearStore: () => dispatch(clearStore()),
     onAddToWatchList: (params: IAddToWatchlistParams) => dispatch(addToWatchlist(params)),
     onMarkAsWatched: (params: IMarkAsWatchedParams) => dispatch(markAsWatched(params)),

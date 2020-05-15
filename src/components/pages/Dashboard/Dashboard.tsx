@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { loadData } from '../../../redux/userData/actions';
 import { IRootState } from '../../../types/redux';
-import { IUserData } from '../../../types/userData';
+import { IUserDataState } from '../../../redux/userData/reducer';
 import { Slider, Layout } from '../../containers';
 import { MoviesSectionList } from '../../presentationals';
 
 interface IOwnProps {}
-interface IConnectedProps { state: IUserData; }
+interface IConnectedProps { state: IUserDataState; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
 
