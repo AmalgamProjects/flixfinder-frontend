@@ -6,7 +6,7 @@ import { loadData, clearStore } from './actions';
 import { IMovieDetailsState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { IFirebaseUser } from '../../../types/user';
-import { ContentWithHeader, Person, Review, FullWidthMovie, YoutubeVideo } from '../../presentationals';
+import { ContentWithHeader, Person, Review, FullWidthMovie, YoutubeVideo, Spinner } from '../../presentationals';
 import { Container, Row, Col, MovieItem } from '..';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
@@ -59,17 +59,21 @@ class MovieDetails extends Component<Props> {
 
   render() {
     const { state: { movie, isLoading } } = this.props;
-    console.log(movie, 'movie')
+    console.log(movie, 'movie');
+
     return (
       <Fragment>
         <div className={Styles.fullWidthMovie}>
+          {isLoading &&
+            <div className={Styles.loader}>
+              <Spinner />
+            </div>}
           {movie && (
             <FullWidthMovie
               isSingleMovie
               onAddToWatchlist={this.handleAddToWatchlist}
               onMarkAsWatched={this.handleMarkAsWatched}
               movie={movie}
-              isLoading={isLoading}
             />
           )}
         </div>
