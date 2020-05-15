@@ -15,6 +15,10 @@ const initialState: ISearchState = {
   isLoading: false,
 };
 
+function handleOnClearStore() {
+  return { ...initialState };
+}
+
 function handleOnLoadRequest(state: ISearchState) {
   return {
     ...state,
@@ -26,6 +30,7 @@ function handleOnLoadSuccess(state: ISearchState, action: ILoadSearchSuccessActi
   return {
     ...state,
     ...(action.payload && { ...action.payload }),
+    isLoading: false
   };
 }
 
@@ -37,6 +42,7 @@ function handleClearSuggestions(state: ISearchState, action: IBaseAction) {
 }
 
 export default createReducer(initialState, {
+  [ActionTypes.CLEAR_STORE]: handleOnClearStore,
   [ActionTypes.LOAD_DATA_REQUEST]: handleOnLoadRequest,
   [ActionTypes.LOAD_DATA_SUCCESS]: handleOnLoadSuccess,
   [ActionTypes.CLEAR_SUGGESTIONS]: handleClearSuggestions,
