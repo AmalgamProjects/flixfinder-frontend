@@ -16,28 +16,29 @@ interface IOwnProps {
 const MoviesSectionList: React.FC<IOwnProps> = ({ title, movies, path, isWatchlist, isAlreadyWachedList }) => (
   <div className={Styles.wrapper}>
     <Container>
-      <div className={Styles.heading}>
-        <Heading title={title} size="small" />
-        {path && (
-          <Link className={Styles.link} to={path}>See all</Link>
+      <div className={Styles.content}>
+        <div className={Styles.heading}>
+          <Heading title={title} size="small" />
+          {path && (
+            <Link className={Styles.link} to={path}>See all</Link>
+          )}
+        </div>
+
+        {movies && movies.length !== 0 && (
+          <Row>
+            {movies.map(movie => (
+              <Col key={movie.title}>
+                <MovieItem
+                  movie={movie}
+                  isAddToWatchlistVisible={!isWatchlist && !isAlreadyWachedList}
+                  isMarkAsWatchedVisible={!isAlreadyWachedList}
+                />
+              </Col>
+            ))}
+          </Row>
         )}
       </div>
     </Container>
-    {movies && movies.length !== 0 && (
-      <Container>
-        <Row>
-          {movies.map(movie => (
-            <Col key={movie.title}>
-              <MovieItem
-                movie={movie}
-                isAddToWatchlistVisible={!isWatchlist && !isAlreadyWachedList}
-                isMarkAsWatchedVisible={!isAlreadyWachedList}
-              />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    )}
   </div>
 );
 

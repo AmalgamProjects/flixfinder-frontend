@@ -1,10 +1,14 @@
 .wrapper {
- display: flex;
- flex-direction: column;
- padding-top: 62px;
- margin: 0 auto;
- width: 100%;
- align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 62px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .heading {
