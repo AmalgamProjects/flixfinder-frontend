@@ -8,8 +8,11 @@ const apiInstance = new Api();
 function* loadData(action: ILoadSearchRequestAction) {
   try {
     const search = action.payload?.search || '';
+    const titleType = action.payload?.titleType || '';
+
     yield delay(800);
-    const data: ISearchResponse = yield call(apiInstance.search, { search });
+
+    const data: ISearchResponse = yield call(apiInstance.search, { search, titleType });
     yield put(loadDataSuccess(data));
   } finally {
     if (yield cancelled()) {

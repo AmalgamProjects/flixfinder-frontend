@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import firebase from 'firebase';
-// import { FirebaseAuthConsumer, IfFirebaseAuthed, IfFirebaseAuthedAnd } from '@react-firebase/auth';
 import { ButtonField } from '../../presentationals';
 import { FirebaseUser } from '../../../types/user';
-import { getAuthData } from '../../../helpers/auth';
 
 interface IOwnProps {
   onLogin: (params: FirebaseUser) => void;
@@ -67,29 +65,6 @@ class FirebaseAuth extends React.Component<IOwnProps> {
         {isLoggedIn && (
           <ButtonField type="button" size="small" variant="secondary" onClick={this.handleSignOut} label="Log Out" />
         )}
-        {/* <FirebaseAuthConsumer>
-          {({ isSignedIn, user, providerId }) => {
-            return (
-              <pre style={{ height: 300, overflow: 'auto' }}>
-                {JSON.stringify({ isSignedIn, user, providerId }, null, 2)}
-              </pre>
-            );
-          }}
-        </FirebaseAuthConsumer>
-        <div>
-          <IfFirebaseAuthed>
-            {() => {
-              return <div>You are authenticated</div>;
-            }}
-          </IfFirebaseAuthed>
-          <IfFirebaseAuthedAnd
-            filter={({ providerId }) => providerId !== 'anonymous'}
-          >
-            {({ providerId }) => {
-              return <div>You are authenticated with {providerId}</div>;
-            }}
-          </IfFirebaseAuthedAnd>
-          </div> */}
       </Fragment>
     );
   }
