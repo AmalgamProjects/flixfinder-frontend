@@ -25,8 +25,8 @@ class Watchlist extends Component {
     return (
       <Layout>
         <div className={Styles.wrapper}>
-          <div className={Styles.content}>
-            <Container>
+          <Container>
+            <div className={Styles.content}>
               <ul className={Styles.tabTitles}>
                 {tabTitles.map((item) => {
                   const tabTitleClassNames = cx({
@@ -39,25 +39,25 @@ class Watchlist extends Component {
                       key={item.id}
                       className={tabTitleClassNames}
                       onClick={() => this.handleTabTitlClick(item.id)}>
-                        {item.title}
-                      </li>
+                      {item.title}
+                    </li>
                   );
                 })}
               </ul>
-            </Container>
-            <div className={Styles.tabs}>
-              {selectedIndex === 0 && (
-                <TabItem>
-                  <MyWatchlist />
-                </TabItem>
-              )}
-              {selectedIndex === 1 && (
-                <TabItem>
-                  <AlreadyWatched />
-                </TabItem>
-              )}
+              <div className={Styles.tabs}>
+                {selectedIndex === 0 && (
+                  <TabItem>
+                    <MyWatchlist />
+                  </TabItem>
+                )}
+                {selectedIndex === 1 && (
+                  <TabItem>
+                    <AlreadyWatched />
+                  </TabItem>
+                )}
+              </div>
             </div>
-          </div>
+          </Container>
         </div>
       </Layout>
     );
