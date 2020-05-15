@@ -6,12 +6,21 @@ import { IBaseAction } from '../../../../types/redux';
 export type ISearchState = {
   count: number;
   results: ISearchResponse[];
+  isLoading: boolean;
 }
 
 const initialState: ISearchState = {
   count: 0,
   results: [],
+  isLoading: false,
 };
+
+function handleOnLoadRequest(state: ISearchState) {
+  return {
+    ...state,
+    isLoading: true,
+  };
+}
 
 function handleOnLoadSuccess(state: ISearchState, action: ILoadSearchSuccessAction) {
   return {
@@ -28,6 +37,7 @@ function handleClearSuggestions(state: ISearchState, action: IBaseAction) {
 }
 
 export default createReducer(initialState, {
+  [ActionTypes.LOAD_DATA_REQUEST]: handleOnLoadRequest,
   [ActionTypes.LOAD_DATA_SUCCESS]: handleOnLoadSuccess,
   [ActionTypes.CLEAR_SUGGESTIONS]: handleClearSuggestions,
 });

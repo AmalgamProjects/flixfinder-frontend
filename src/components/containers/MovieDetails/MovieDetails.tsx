@@ -10,13 +10,19 @@ import { ContentWithHeader, Person, Review, FullWidthMovie } from '../../present
 import Styles from './MovieDetails.module.scss';
 import movieTestBackground from '../../../assets/images//movie-background-test.jpg';
 import { Container, Row, Col, MovieItem } from '..';
+import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
+import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
 
 interface IOwnProps {
   movieId: string;
 }
 
 interface IConnectedProps { state: IMovieDetailsState; user: IFirebaseUser; }
-interface IConnectedDispatchProps { onLoadData: typeof loadData; }
+interface IConnectedDispatchProps {
+  onLoadData: typeof loadData;
+  onAddToWatchList: typeof addToWatchlist;
+  onMarkAsWatched: typeof markAsWatched;
+}
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps;
 
 class MovieDetails extends Component<Props> {
@@ -31,6 +37,20 @@ class MovieDetails extends Component<Props> {
     }
   }
 
+  handleAddToWatchlist = () => {
+    const { state, onAddToWatchList, user: userState } = this.props;
+    if (userState && userState.user && state.movie) {
+      onAddToWatchList({ title: state.movie.id, user: userState.user.uid });
+    }
+  };
+
+  handleMarkAsWatched = () => {
+    const { state, onMarkAsWatched, user: userState } = this.props;
+    if (userState && userState.user && state.movie) {
+      onMarkAsWatched({ title: state.movie.id, user: userState.user.uid });
+    }
+  };
+
   render() {
     const { state: { movie, isLoading } } = this.props;
 
@@ -41,6 +61,8 @@ class MovieDetails extends Component<Props> {
           {movie && (
             <FullWidthMovie
               isSingleMovie
+              onAddToWatchlist={this.handleAddToWatchlist}
+              onMarkAsWatched={this.handleMarkAsWatched}
               title={movie.primaryTitle}
               background={movieTestBackground}
               details="R | 2h 41min | Comedy, Drama | 26 July 2019 (USA)"
@@ -117,5 +139,7 @@ export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRoo
   }),
   (dispatch: Dispatch) => ({
     onLoadData: params => dispatch(loadData(params)),
+    onAddToWatchList: (params: IAddToWatchlistParams) => dispatch(addToWatchlist(params)),
+    onMarkAsWatched: (params: IMarkAsWatchedParams) => dispatch(markAsWatched(params)),
   }),
 )(withRouter(MovieDetails));
