@@ -7,9 +7,10 @@ import { IMovie } from '../../../types/movie';
 import { IUserData } from '../../../types/userData';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
-import Styles from './MovieItem.module.scss';
 import { heart, check } from '../../../assets/icons';
 import { TileButton } from '../../presentationals';
+import posterHolder from '../../../assets/images/poster-holder.jpg';
+import Styles from './MovieItem.module.scss';
 
 interface IOwnProps {
   movie?: IMovie;
@@ -40,7 +41,7 @@ class MovieItem extends Component<Props> {
 
   render() {
     const { movie, isAddToWatchlistVisible = true, isMarkAsWatchedVisible = true } = this.props;
-    const movieCover = movie && movie.image_url ? movie.image_url : 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg';
+    const movieCover = movie && movie.poster_url ? movie.poster_url : posterHolder;
 
     if (!movie) { return null; }
 
@@ -58,7 +59,7 @@ class MovieItem extends Component<Props> {
             </span>
           )}
           <Link className={Styles.link} to={`/movie/${movie.title}`}>
-            <img className={Styles.cover} src={movieCover} alt={movie.title} />
+            <img className={Styles.cover} src={movieCover} alt={movie.primaryTitle || movie.title} />
           </Link>
         </span>
         <span className={Styles.title}>{movie.title}</span>
