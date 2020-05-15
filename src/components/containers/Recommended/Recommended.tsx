@@ -10,7 +10,6 @@ import Styles from './Recommended.module.scss';
 interface IOwnProps {
   title: string;
   path?: string;
-  limit?: number;
 }
 interface IConnectedProps { state: IUserData; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
@@ -23,13 +22,12 @@ class Recommended extends Component<Props> {
   }
 
   render() {
-    const { title, path, limit } = this.props;
+    const { title, path } = this.props;
     const { recommended } = this.props.state;
-    const movies = limit && recommended ? recommended.slice(0, limit) : recommended;
 
     return (
       <div className={Styles.wrapper}>
-        <MoviesSectionList movies={movies} title={title} path={path} />
+        <MoviesSectionList movies={recommended} title={title} path={path} />
       </div>
     );
   }
