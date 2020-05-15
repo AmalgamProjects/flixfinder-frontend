@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Movies, Layout, Slider } from '../../containers';
+import { Layout, Slider, Recommended } from '../../containers';
 
 const Dashboard: React.FC = () => (
   <Layout>
     <Slider />
-    <Movies />
+    <Recommended limit={6} title="Recommended Movies" path="/reccomended-movies" />
+    <Recommended limit={6} title="Recommended TV Shows" path="/reccomended-tv-shows" />
   </Layout>
 );
 
