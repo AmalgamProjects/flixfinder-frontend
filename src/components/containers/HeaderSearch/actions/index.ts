@@ -4,6 +4,7 @@ import { IBaseAction } from '../../../../types/redux';
 
 const ROOT = 'SEARCH_';
 export const ActionTypes = {
+  CLEAR_STORE: `${ROOT}CLEAR_STORE`,
   LOAD_DATA_REQUEST: `${ROOT}LOAD_DATA_REQUEST`,
   LOAD_DATA_SUCCESS: `${ROOT}LOAD_DATA_SUCCESS`,
   CLEAR_SUGGESTIONS: `${ROOT}CLEAR_SUGGESTIONS`,
@@ -18,6 +19,10 @@ export type ILoadSearchSuccessAction = {
   type: typeof ActionTypes.LOAD_DATA_SUCCESS;
   payload?: ISearchResponse;
 }
+
+export const clearStore = () => ({
+  type: ActionTypes.CLEAR_STORE,
+});
 
 export const loadData = (payload: ISearchParams): ILoadSearchRequestAction => ({
   type: ActionTypes.LOAD_DATA_REQUEST,
