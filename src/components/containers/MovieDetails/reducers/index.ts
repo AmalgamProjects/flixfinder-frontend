@@ -12,6 +12,10 @@ const initialState: IMovieDetailsState = {
   isLoading: false,
 };
 
+function handleOnClearStore() {
+  return { ...initialState };
+}
+
 function handleOnLoadRequest(state: IMovieDetailsState) {
   return {
     ...state,
@@ -30,4 +34,5 @@ function handleOnLoadSuccess(state: IMovieDetailsState, action: ILoadMovieDetail
 export default createReducer(initialState, {
   [ActionTypes.LOAD_DATA_REQUEST]: handleOnLoadRequest,
   [ActionTypes.LOAD_DATA_SUCCESS]: handleOnLoadSuccess,
+  [ActionTypes.CLEAR_STORE]: handleOnClearStore,
 });
