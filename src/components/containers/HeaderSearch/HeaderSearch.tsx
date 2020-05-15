@@ -6,10 +6,11 @@ import Autosuggest, { SuggestionsFetchRequestedParams } from 'react-autosuggest'
 import Styles from './HeaderSearch.module.scss';
 import { search, caretDown } from '../../../assets/icons';
 import { ISearchState } from './reducers';
-import { loadData, clearSuggestions } from './actions';
+import { loadData, clearSuggestions, clearStore } from './actions';
 import { IRootState } from '../../../types/redux';
 import { ISearchParams } from '../../../api/search';
 import { IMovie } from '../../../types/movie';
+import { Spinner } from '../../presentationals';
 
 type TitleType = 'movie' | 'tvMovie' | 'tvSeries' | 'tvMiniSeries';
 interface IState {
@@ -20,6 +21,7 @@ interface IState {
 interface IOwnProps { }
 interface IConnectedProps { state: ISearchState; }
 interface IConnectedDispatchProps {
+  onClearStore: typeof clearStore;
   onLoadData: typeof loadData;
   onClearSuggestions: typeof clearSuggestions;
 }
@@ -59,8 +61,9 @@ class HeaderSearch extends Component<Props, IState> {
   };
 
   handleClear = () => {
-    const { onClearSuggestions } = this.props;
+    const { onClearSuggestions, onClearStore } = this.props;
     onClearSuggestions();
+    onClearStore();
   };
 
   onChange = (_event: FormEvent<any>, { newValue }: { newValue: string }) => {
@@ -81,8 +84,8 @@ class HeaderSearch extends Component<Props, IState> {
 
   render() {
     const { state } = this.props;
+    const { isLoading } = state;
     const { value, titleType } = this.state;
-
     const suggestions = state.results;
 
     const inputProps = {
@@ -112,7 +115,12 @@ class HeaderSearch extends Component<Props, IState> {
             renderSuggestion={renderSuggestion}
             inputProps={inputProps}
           />
-          <div className={Styles.searchIcon}>{search}</div>
+          <div className={Styles.searchIcon}>
+            {isLoading ?
+              <div className={Styles.loader}>
+                <Spinner size="small" color="dark" />
+              </div> : search}
+          </div>
         </div>
       </div>
     );
@@ -124,6 +132,7 @@ export default connect<IConnectedProps, IConnectedDispatchProps, IOwnProps, IRoo
     state: state.Search,
   }),
   (dispatch: Dispatch) => ({
+    onClearStore: () => dispatch(clearStore()),
     onLoadData: (params: ISearchParams) => dispatch(loadData(params)),
     onClearSuggestions: () => dispatch(clearSuggestions()),
   }),
