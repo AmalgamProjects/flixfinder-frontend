@@ -16,7 +16,7 @@ class Slider extends Component<Props> {
   render() {
     return (
       <div className={Styles.wrapper}>
-        <div className={Styles.titleWrapper}>
+        {/* <div className={Styles.titleWrapper}>
           <Container>
             <h1 className={Styles.heading}>Top picks</h1>
           </Container>
@@ -34,13 +34,17 @@ class Slider extends Component<Props> {
             title="Movie title 1"
             background={movieTestBackground}
             details="2012"
+            poster={''}
+            summary={''}
           />
           <FullWidthMovie
             title="Movie title 2"
             background={movieTestBackground}
             details="1998"
+            poster={''}
+            summary={''}
           />
-        </Carousel>
+        </Carousel> */}
       </div>
     );
   }

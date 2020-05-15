@@ -6,13 +6,15 @@ import { ratings } from '../../../assets/icons';
 interface IOwnProps {
   isSingleMovie?: boolean;
   details: string;
-  director?: string;
+  director?: string | null;
   starring?: string;
   writer?: string;
   title: string;
+  summary: string | null;
+  rating: string;
 }
 
-const MovieDetails: React.SFC<IOwnProps> = ({ writer, starring, director, isSingleMovie, details, title }) => {
+const MovieDetails: React.SFC<IOwnProps> = ({ writer, starring, director, isSingleMovie, details, title, rating, summary }) => {
   const textClassNames = cx({
     [Styles.text]: true,
     [Styles.textSingleMovie]: isSingleMovie
@@ -32,12 +34,12 @@ const MovieDetails: React.SFC<IOwnProps> = ({ writer, starring, director, isSing
         </div>
         <div className={Styles.rating}>
           <div className={Styles.textWrapper}>
-            <p className={textClassNames}><span className={Styles.ratingIcon}>{ratings}</span> 8.9/10</p>
+            <p className={textClassNames}><span className={Styles.ratingIcon}>{ratings}</span> {rating}/10</p>
           </div>
         </div>
       </div>
       <div className={Styles.textWrapper}>
-        <p className={textClassNames}>A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.</p>
+        {summary && <p className={textClassNames}>{summary}</p>}
       </div>
       {director && <p className={textClassNames}><span className={Styles.textBold}>Director:</span> {director}</p>}
       {writer && <p className={textClassNames}><span className={Styles.textBold}>Writer:</span> {writer}</p>}

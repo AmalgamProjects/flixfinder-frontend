@@ -16,3 +16,5 @@ export { default as TileButton } from './TileButton/TileButton';
 export { default as ContentWithHeader } from './ContentWithHeader/ContentWithHeader';
 export { default as Person } from './Person/Person';
 export { default as Review } from './Review/Review';
+export { default as Spinner } from './Spinner/Spinner';
+export { default as YoutubeVideo } from './YoutubeVideo/YoutubeVideo';
