@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import {
   Dashboard,
   Login,
-  Onboarding,
   MyProfile,
   Watchlist,
   Movie,
@@ -18,7 +17,6 @@ const Routes = () => (
     <Route path="/login" exact component={Login} />
     <Route path="/reccomended-movies" exact component={RecommendedMovies} />
     <Route path="/reccomended-tv-shows" exact component={RecommendedTvShows} />
-    <Route path="/onboarding" exact component={Onboarding} />
     <Route path="/profile" exact component={MyProfile} />
     <Route path="/watchlist" exact component={Watchlist} />
     <Route path="/movie/:id" component={Movie} />
