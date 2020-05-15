@@ -16,6 +16,7 @@ interface IOwnProps {
 class FullWidthMovie extends Component<IOwnProps> {
   render() {
     const { onAddToWatchlist, onMarkAsWatched, isSingleMovie, movie } = this.props;
+    // eslint-disable-next-line camelcase
     const { image_url, poster_url, averageRating, genres, primaryTitle, runtimeMinutes, startYear, summary } = movie;
 
     const wrapperClassNames = cx({
@@ -56,7 +57,7 @@ class FullWidthMovie extends Component<IOwnProps> {
                 {onAddToWatchlist && onMarkAsWatched && (
                   <div className={Styles.buttons}>
                     <TileButton expanded onClick={onAddToWatchlist} label="Add to watchlist" icon={heart} />
-                    <TileButton expanded onClick={onMarkAsWatched} label="Marked as watched" icon={check} />
+                    <TileButton expanded onClick={onMarkAsWatched} label="Mark as watched" icon={check} />
                   </div>
                 )}
                 <MovieDetails
