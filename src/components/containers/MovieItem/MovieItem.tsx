@@ -12,7 +12,7 @@ import { heart, check } from '../../../assets/icons';
 import { TileButton } from '../../presentationals';
 
 interface IOwnProps {
-  movie: IMovie;
+  movie?: IMovie;
   isAddToWatchlistVisible?: boolean;
   isMarkAsWatchedVisible?: boolean;
 }
@@ -26,32 +26,37 @@ type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
 class MovieItem extends Component<Props> {
   handleAddToWatchlist = () => {
     const { movie, onAddToWatchList, state } = this.props;
-    onAddToWatchList({ title: movie.title, user: state.username });
+    if (movie) {
+      onAddToWatchList({ title: movie.title, user: state.username });
+    }
   };
 
   handleMarkAsWatched = () => {
     const { movie, onMarkAsWatched, state } = this.props;
-    onMarkAsWatched({ title: movie.title, user: state.username });
+    if (movie) {
+      onMarkAsWatched({ title: movie.title, user: state.username });
+    }
   };
 
   render() {
     const { movie, isAddToWatchlistVisible = true, isMarkAsWatchedVisible = true } = this.props;
-    const movieCover = movie.imageUrl ? movie.imageUrl : 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg';
+    const movieCover = movie && movie.image_url ? movie.image_url : 'https://images.fineartamerica.com/images-medium-large-5/no051-my-mad-max-minimal-movie-poster-chungkong-art.jpg';
+
+    if (!movie) { return null; }
 
     return (
       <div className={Styles.wrapper}>
-
         <span className={Styles.innerLink}>
-          {isAddToWatchlistVisible &&
+          {isAddToWatchlistVisible && (
             <span className={Styles.buttonTop}>
               <TileButton label="Add to watchlist" icon={heart} onClick={this.handleAddToWatchlist} />
             </span>
-          }
-          {isMarkAsWatchedVisible &&
+          )}
+          {isMarkAsWatchedVisible && (
             <span className={Styles.buttonBottom}>
               <TileButton label="Mark as watched" icon={check} onClick={this.handleMarkAsWatched} />
-            </span>}
-
+            </span>
+          )}
           <Link className={Styles.link} to={`/movie/${movie.title}`}>
             <img className={Styles.cover} src={movieCover} alt={movie.title} />
           </Link>
