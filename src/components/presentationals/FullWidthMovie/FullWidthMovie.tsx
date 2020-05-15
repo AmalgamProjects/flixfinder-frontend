@@ -2,22 +2,21 @@ import React, { Component } from 'react';
 import cx from 'classnames';
 import Styles from './FullWidthMovie.module.scss';
 import { Container } from '../../containers';
-import { MovieDetails, Image, TileButton, Spinner } from '..';
+import { MovieDetails, Image, TileButton } from '..';
 import { heart, check } from '../../../assets/icons';
 import { IMovie } from '../../../types/movie';
 
 interface IOwnProps {
   isSingleMovie?: boolean;
   movie: IMovie;
-  isLoading: boolean;
   onAddToWatchlist?: () => void;
   onMarkAsWatched?: () => void;
 }
 
 class FullWidthMovie extends Component<IOwnProps> {
   render() {
-    const { onAddToWatchlist, onMarkAsWatched, isSingleMovie, movie, isLoading } = this.props;
-    const { title, image_url, poster_url, averageRating, directors, endYear, genres, moviedb, primaryTitle, principals, rapid, runtimeMinutes, startYear, titleType, summary, backdrop_url, numVotes, tastedb, wikipedia_url, writers, youtube_url } = movie;
+    const { onAddToWatchlist, onMarkAsWatched, isSingleMovie, movie } = this.props;
+    const { image_url, poster_url, averageRating, genres, primaryTitle, runtimeMinutes, startYear, summary } = movie;
 
     const wrapperClassNames = cx({
       [Styles.wrapper]: true,
@@ -47,10 +46,6 @@ class FullWidthMovie extends Component<IOwnProps> {
 
     return (
       <div className={wrapperClassNames} style={{ backgroundImage: `url(${image_url})` }}>
-        {isLoading &&
-          <div className={Styles.loader}>
-            <Spinner />
-          </div>}
         <div className={innerWrapperClassNames}>
           <Container>
             <div className={contentClassNames}>
