@@ -20,7 +20,7 @@ const Routes = () => (
     <Route path="/reccomended-tv-shows" exact component={RecommendedTvShows} />
     <Route path="/profile" exact component={MyProfile} />
     <Route path="/watchlist" exact component={Watchlist} />
-    <Route path="/search/:term" exact component={Search} />
+    <Route path="/search/:term/:titleType" exact component={Search} />
     <Route path="/movie/:id" component={Movie} />
     <Route component={NotFountRoute} />
   </Switch>

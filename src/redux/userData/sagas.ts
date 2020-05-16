@@ -1,5 +1,5 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
-import { loadDataSuccess, ActionTypes, IAddToWatchlistRequestAction, IMarkAsWatchedRequestAction, loadData as getUpdatedData } from './actions';
+import { loadDataSuccess, ActionTypes, IAddToWatchlistRequestAction, IMarkAsWatchedRequestAction } from './actions';
 import { IFetchUserDataResponse } from '../../api/userData';
 import Api from '../../api';
 
@@ -15,7 +15,6 @@ function* addToWatchlist(action: IAddToWatchlistRequestAction) {
   const user = action.payload?.user || '';
 
   yield call(apiInstance.addToWatchList, { title, user });
-  // yield put(getUpdatedData());
 }
 
 function* markAsWatched(action: IMarkAsWatchedRequestAction) {
@@ -23,7 +22,6 @@ function* markAsWatched(action: IMarkAsWatchedRequestAction) {
   const user = action.payload?.user || '';
 
   yield call(apiInstance.markAsWatched, { title, user });
-  // yield put(getUpdatedData());
 }
 
 export default function* rootSaga() {

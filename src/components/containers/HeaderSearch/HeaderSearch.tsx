@@ -73,12 +73,13 @@ class HeaderSearch extends Component<Props, IState> {
   };
 
   handleKeyDown = (event: FormEvent<KeyboardEvent>) => {
+    const { titleType } = this.state;
     const { history } = this.props;
     const { value } = this.state;
 
     // @ts-ignore
     if (event.key === 'Enter') {
-      history.push(`/search/${value}`);
+      history.push(`/search/${value}/${titleType}`);
     }
   }
 
