@@ -29,3 +29,22 @@
 .review {
   margin-bottom: 10px;
 }
+
+:global {
+  .anchor {
+    color: #00acff;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fff;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -20px;
+      width: 20px;
+      height: 100%;
+      background: linear-gradient(to right, transparent 0, #fff 100%);
+    }
+  }
+}
