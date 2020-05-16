@@ -5,6 +5,7 @@ import movieDetailsSaga from '../components/containers/MovieDetails/sagas';
 import loginSaga from '../components/containers/Auth/sagas';
 import userDataSaga from './userData/sagas';
 import searchSaga from '../components/containers/HeaderSearch/sagas';
+import searchPageSaga from '../components/pages/Search/sagas';
 import reviewsSaga from '../components/containers/MoreLikeThis/sagas';
 import moreLikeThisSaga from '../components/containers/Reviews/sagas';
 
@@ -16,6 +17,7 @@ export default function* rootSaga() {
     loginSaga(),
     userDataSaga(),
     searchSaga(),
+    searchPageSaga(),
     moreLikeThisSaga(),
     reviewsSaga(),
   ];
