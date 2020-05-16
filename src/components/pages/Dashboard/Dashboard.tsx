@@ -19,14 +19,18 @@ class Dashboard extends Component<Props> {
   }
 
   render() {
-    const { recommended } = this.props.state;
-    const movies = recommended.slice(0, 6);
+    const { recommended, recommended_movies, recommended_tv, isLoading } = this.props.state;
+    const movies = recommended_movies.slice(10, 16);
+    const tvShows = recommended_tv.slice(0, 6);
+    const picks = recommended.filter(movie => movie.priority < 4).slice(0, 5);
+
+    console.log('isLoading home page', isLoading);
 
     return (
       <Layout>
-        <Slider />
+        <Slider picks={picks} />
         <MoviesSectionList movies={movies} title="Recommended Movies" path="/reccomended-movies" />
-        <MoviesSectionList movies={movies} title="Recommended TV Shows" path="/reccomended-tv-shows" />
+        <MoviesSectionList movies={tvShows} title="Recommended TV Shows" path="/reccomended-tv-shows" />
       </Layout>
     );
   }

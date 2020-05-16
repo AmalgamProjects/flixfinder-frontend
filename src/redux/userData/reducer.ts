@@ -16,6 +16,8 @@ const initialState: IUserDataState = {
   seen: [],
   watch: [],
   recommended: [],
+  recommended_movies: [],
+  recommended_tv: [],
   isLoading: false,
   isAddToWatchlistLoading: false,
   isMarkAsWatchedLoading: false,

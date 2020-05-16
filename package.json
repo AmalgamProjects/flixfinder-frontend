@@ -55,6 +55,7 @@
           "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"
         }
       ],
+      "camelcase": ["error", { "ignoreDestructuring": true, "properties": "never" }],
       "quotes": [
         2,
         "single",

@@ -1,6 +1,7 @@
 export interface IMovie {
   id: string;
   title: string;
+  priority: number;
   user: string; // this is firebase uid
   // eslint-disable-next-line camelcase
   image_url: string | null;

@@ -1,28 +1,28 @@
 import * as React from 'react';
 import cx from 'classnames';
-import Styles from './MovieDetails.module.scss';
 import { ratings } from '../../../assets/icons';
+import Styles from './MovieDetailsHero.module.scss';
 
 interface IOwnProps {
   isSingleMovie?: boolean;
-  details: string;
+  details: string | null;
   director?: string | null;
   starring?: string;
   writer?: string;
   title: string;
   summary: string | null;
-  rating: string;
+  rating?: string;
 }
 
-const MovieDetails: React.SFC<IOwnProps> = ({ writer, starring, director, isSingleMovie, details, title, rating, summary }) => {
+const MovieDetailsHero: React.SFC<IOwnProps> = ({ writer, starring, director, isSingleMovie, details, title, rating, summary }) => {
   const textClassNames = cx({
     [Styles.text]: true,
-    [Styles.textSingleMovie]: isSingleMovie
+    [Styles.textSingleMovie]: isSingleMovie,
   });
 
   const titleClassNames = cx({
     [Styles.title]: true,
-    [Styles.titleSingleMovie]: isSingleMovie
+    [Styles.titleSingleMovie]: isSingleMovie,
   });
 
   return (
@@ -30,11 +30,15 @@ const MovieDetails: React.SFC<IOwnProps> = ({ writer, starring, director, isSing
       <h2 className={titleClassNames}>{title}</h2>
       <div className={Styles.moreDetails}>
         <div className={Styles.textWrapper}>
-          <p className={textClassNames}>{details}</p>
+          {details && <p className={textClassNames}>{details}</p>}
         </div>
         <div className={Styles.rating}>
           <div className={Styles.textWrapper}>
-            <p className={textClassNames}><span className={Styles.ratingIcon}>{ratings}</span> {rating}/10</p>
+            {rating && (
+              <p className={textClassNames}>
+                <span className={Styles.ratingIcon}>{ratings}</span> {rating}/10
+              </p>
+            )}
           </div>
         </div>
       </div>
@@ -48,4 +52,4 @@ const MovieDetails: React.SFC<IOwnProps> = ({ writer, starring, director, isSing
   );
 };
 
-export default MovieDetails;
+export default MovieDetailsHero;
