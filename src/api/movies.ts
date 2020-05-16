@@ -51,7 +51,7 @@ export const fetchMovieDetails = (params: IFetchMovieDetailsParams) => {
         headers: {
           ...accessToken && { Authorization: `Bearer ${accessToken}` },
         },
-        url: `/title/${params.id}`,
+        url: `/title/${params.id}/`,
       },
     )
     .then(res => res.data)

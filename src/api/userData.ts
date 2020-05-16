@@ -34,7 +34,7 @@ export const fetchUserData = () => {
         headers: {
           ...accessToken && { Authorization: `Bearer ${accessToken}` },
         },
-        url: `/users/${uid}`,
+        url: `/users/${uid}/`,
       },
     )
     .then(res => res.data)
