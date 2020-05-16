@@ -11,6 +11,7 @@ import { IRootState } from '../../../types/redux';
 import { IFetchMovieDetailsParams } from '../../../api/movies';
 import { Container } from '..';
 import Styles from './MovieHero.module.scss';
+import { Link } from 'react-router-dom';
 
 interface IOwnProps {
   isSingleMovie?: boolean;
@@ -20,6 +21,7 @@ interface IOwnProps {
   onMarkAsWatched?: () => void;
   isAddToWatchlistLoading?: boolean,
   isMarkAsWatchedLoading?: boolean,
+  url?: string;
 }
 
 interface IConnectedDispatchProps {
@@ -48,6 +50,7 @@ class MovieHero extends Component<Props> {
       movie,
       isAddToWatchlistLoading,
       isMarkAsWatchedLoading,
+      url
     } = this.props;
 
     const { image_url, poster_url, averageRating, genres, primaryTitle, runtimeMinutes, startYear, summary, backdrop_url, principals } = movie;
@@ -98,7 +101,11 @@ class MovieHero extends Component<Props> {
           <Container>
             <div className={contentClassNames}>
               {poster_url && <div className={Styles.poster}>
-                <Image alt="poster" url={poster_url} />
+                {!url ?
+                  <Image alt="poster" url={poster_url} />
+                  : <Link to={url}>
+                    <Image alt="poster" url={poster_url} />
+                  </Link>}
               </div>}
               <div className={detailsClassNames}>
                 {onAddToWatchlist && onMarkAsWatched && (
