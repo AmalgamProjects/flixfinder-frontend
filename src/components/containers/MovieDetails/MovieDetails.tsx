@@ -102,18 +102,17 @@ class MovieDetails extends Component<Props> {
                   </Col>}
               </Row>
 
-              <ContentWithHeader heading="Cast & Crew">
+              {movie && movie.principals && movie.principals.length > 0 && <ContentWithHeader heading="Cast & Crew">
                 <div className={Styles.cast}>
                   <Row>
-                    <Col><Person image="https://via.placeholder.com/100" title="Tony Hawk" subtitle="Andrew Reynolds" /></Col>
-                    <Col><Person image="https://via.placeholder.com/100" title="Tony Hawk" subtitle="Andrew Reynolds" /></Col>
-                    <Col><Person image="https://via.placeholder.com/100" title="Tony Hawk" subtitle="Andrew Reynolds" /></Col>
-                    <Col><Person image="https://via.placeholder.com/100" title="Tony Hawk" subtitle="Andrew Reynolds" /></Col>
-                    <Col><Person image="https://via.placeholder.com/100" title="Tony Hawk" subtitle="Andrew Reynolds" /></Col>
-                    <Col><Person image="https://via.placeholder.com/100" title="Tony Hawk" subtitle="Andrew Reynolds" /></Col>
+                    {movie && movie.principals.map((principal) =>
+                      <Col key={principal.primaryName}>
+                        <Person image={principal.image_url} title={principal.primaryName} subtitle={principal.characters} />
+                      </Col>
+                    )}
                   </Row>
                 </div>
-              </ContentWithHeader>
+              </ContentWithHeader>}
 
               <Reviews movieId={match.params.id} />
 
