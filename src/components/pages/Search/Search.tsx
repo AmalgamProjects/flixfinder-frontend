@@ -13,12 +13,12 @@ import Styles from './Search.module.scss';
 interface IOwnProps {}
 interface IConnectedProps { state: ISearchPageState; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
-type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps<{ term: string }>;
+type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps<{ term: string; titleType: string; }>;
 
 class Search extends Component<Props> {
   componentDidMount() {
     const { onLoadData, match } = this.props;
-    onLoadData({ search: match.params.term });
+    onLoadData({ search: match.params.term, titleType: match.params.titleType });
   }
 
   componentDidUpdate(prevProps: Props) {
