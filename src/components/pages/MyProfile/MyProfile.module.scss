@@ -16,8 +16,21 @@
   margin-top: 24px;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+
+  @media (min-width: 815px) {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.logout {
+  padding-top: 20px;
+
+  @media (min-width: 815px) {
+    padding-top: 0;
+  }
 }
 
 .subHeading {
@@ -26,7 +39,11 @@
   line-height: normal;
   letter-spacing: -0.5px;
   color: #000;
-  padding-bottom: 20px;
+  padding-bottom: 0;
+
+  @media (min-width: 815px) {
+    padding-bottom: 20px;
+  }
 
   & .icon {
     display: inline-block;

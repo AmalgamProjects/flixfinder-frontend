@@ -7,8 +7,9 @@ import { IAuthState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { FirebaseUser } from '../../../types/user';
 import { FirebaseAuth } from '..';
+import Styles from './Auth.module.scss';
 
-interface IOwnProps {}
+interface IOwnProps { }
 interface IConnectedProps { state: IAuthState; }
 interface IConnectedDispatchProps {
   onLogin: typeof login;
@@ -33,7 +34,7 @@ class Login extends Component<Props> {
     const { state } = this.props;
 
     return (
-      <div>
+      <div className={Styles.wrapper}>
         <FirebaseAuth
           isLoggedIn={!!state.user}
           onLogin={this.handleOnLogin}

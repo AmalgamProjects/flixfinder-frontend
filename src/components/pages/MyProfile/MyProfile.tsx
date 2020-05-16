@@ -29,7 +29,9 @@ class MyProfile extends Component<Props> {
                     <p className={Styles.email}>{state.user.email}</p>
                   )}
                 </div>
-                <Auth />
+                <div className={Styles.logout}>
+                  <Auth />
+                </div>
               </div>
             </div>
           </Container>
