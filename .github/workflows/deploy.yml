@@ -54,7 +54,6 @@ jobs:
         REACT_APP_FIREBASE_MESSAGING_SENDER_ID: 448246272078
         REACT_APP_FIREBASE_PROJECT_ID: flixfinder-develop
         REACT_APP_FIREBASE_STORAGE_BUCKET: flixfinder-develop.appspot.com
-        REACT_APP_FIREBASE_MEASURMENT_ID: G-9VP01NDSXJ
       run: |
         yarn build
         rm -rf ${WORKSPACE}/deploy/static-develop/
@@ -64,6 +63,7 @@ jobs:
       env:
         CI: false
         WORKSPACE: ${{ github.workspace }}
+        REACT_APP_API_URL: https://flixfinder.uc.r.appspot.com/api
         REACT_APP_FIREBASE_APP_ID: 1:82969337644:web:0f67863aa9981e5af2d689
         REACT_APP_FIREBASE_API_KEY: AIzaSyBmSwQCW0kg8mZyAJGVZEzUApVT-eIzN-s
         REACT_APP_FIREBASE_AUTH_DOMAIN: flixfinder.firebaseapp.com
