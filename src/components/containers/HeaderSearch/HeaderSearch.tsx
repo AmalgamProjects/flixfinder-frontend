@@ -56,7 +56,7 @@ class HeaderSearch extends Component<Props, IState> {
     const { value } = input;
 
     if (value && value.length > 1) {
-      onLoadData({ search: value, titleType });
+      onLoadData({ search: value, titleType, onlytitles: true });
     }
   };
 

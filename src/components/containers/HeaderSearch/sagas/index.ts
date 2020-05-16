@@ -9,10 +9,11 @@ function* loadData(action: ILoadSearchRequestAction) {
   try {
     const search = action.payload?.search || '';
     const titleType = action.payload?.titleType || '';
+    const onlytitles = action.payload?.onlytitles || false;
 
     yield delay(800);
 
-    const data: ISearchResponse = yield call(apiInstance.search, { search, titleType });
+    const data: ISearchResponse = yield call(apiInstance.search, { search, titleType, onlytitles });
     yield put(loadDataSuccess(data));
   } finally {
     if (yield cancelled()) {
