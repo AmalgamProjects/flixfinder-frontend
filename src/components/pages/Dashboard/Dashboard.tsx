@@ -5,9 +5,10 @@ import { loadData } from '../../../redux/userData/actions';
 import { IRootState } from '../../../types/redux';
 import { IUserDataState } from '../../../redux/userData/reducer';
 import { Slider, Layout } from '../../containers';
-import { MoviesSectionList } from '../../presentationals';
+import { MoviesSectionList, Spinner } from '../../presentationals';
+import Styles from './Dashboard.module.scss';
 
-interface IOwnProps {}
+interface IOwnProps { }
 interface IConnectedProps { state: IUserDataState; }
 interface IConnectedDispatchProps { onLoadData: typeof loadData; }
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
@@ -24,13 +25,18 @@ class Dashboard extends Component<Props> {
     const tvShows = recommended_tv.slice(0, 6);
     const picks = recommended.filter(movie => movie.priority < 4).slice(0, 5);
 
-    console.log('isLoading home page', isLoading);
-
     return (
       <Layout>
-        <Slider picks={picks} />
-        <MoviesSectionList movies={movies} title="Recommended Movies" path="/reccomended-movies" />
-        <MoviesSectionList movies={tvShows} title="Recommended TV Shows" path="/reccomended-tv-shows" />
+        <div className={Styles.wrapper}>
+          {isLoading &&
+            <div className={Styles.loader}>
+              <Spinner color="dark" />
+            </div>
+          }
+          {picks.length > 0 && !isLoading && <Slider picks={picks} />}
+          {movies.length > 0 && !isLoading && <MoviesSectionList movies={movies} title="Recommended Movies" path="/reccomended-movies" />}
+          {tvShows.length > 0 && !isLoading && <MoviesSectionList movies={tvShows} title="Recommended TV Shows" path="/reccomended-tv-shows" />}
+        </div>
       </Layout>
     );
   }
