@@ -13,17 +13,17 @@ function* loadData() {
 function* addToWatchlist(action: IAddToWatchlistRequestAction) {
   const title = action.payload?.title || '';
   const user = action.payload?.user || '';
-  // const data: TODO = yield call(apiInstance.addToWatchList, { title, user });
+
   yield call(apiInstance.addToWatchList, { title, user });
-  yield put(getUpdatedData());
+  // yield put(getUpdatedData());
 }
 
 function* markAsWatched(action: IMarkAsWatchedRequestAction) {
   const title = action.payload?.title || '';
   const user = action.payload?.user || '';
-  // const data: TODO = yield call(apiInstance.markAsWatched, { title, user });
+
   yield call(apiInstance.markAsWatched, { title, user });
-  yield put(getUpdatedData());
+  // yield put(getUpdatedData());
 }
 
 export default function* rootSaga() {
