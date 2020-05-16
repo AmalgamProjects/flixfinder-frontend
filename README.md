@@ -12,12 +12,12 @@ This project has three github repos
 
 ### Build with ReactJS, Redux and TypeScript
 
-Tu run locally check `.env.example` file and create new one `.env` based on the example in the root folder of the project directory.
+To run locally check `.env.example` file and create a new `.env` based on the example in the root folder of the project directory.
 
 Inside the project, you can run some built-in command:
 
 ### `yarn`
-Install all requires dependecies.
+Installs all required dependencies.
 
 ### `yarn start`
 
@@ -27,13 +27,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will automatically reload if you make changes to the code.<br>
 You will see the build errors and lint warnings in the console.
 
-<p align='center'>
+<p>
 <img src='https://cdn.jsdelivr.net/gh/marionebl/create-react-app@9f6282671c54f0874afd37a72f6689727b562498/screencast-error.svg' width='600' alt='Build errors'>
 </p>
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.<br>
+Builds the app for production in to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>
