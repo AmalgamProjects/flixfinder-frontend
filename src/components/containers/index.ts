@@ -14,3 +14,5 @@ export { default as MyWatchlist } from './MyWatchlist/MyWatchlist';
 export { default as AlreadyWatched } from './AlreadyWatched/AlreadyWatched';
 export { default as MovieItem } from './MovieItem/MovieItem';
 export { default as MovieHero } from './MovieHero/MovieHero';
+export { default as MoreLikeThis } from './MoreLikeThis/MoreLikeThis';
+export { default as Reviews } from './Reviews/Reviews';
