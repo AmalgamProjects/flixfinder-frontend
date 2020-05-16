@@ -37,7 +37,7 @@ class MoreLikeThis extends Component<Props> {
     return (
       <ContentWithHeader heading="More Like This">
         <Row>
-          {results && results.map(movie => <Col><MovieItem movie={movie} /></Col>)}
+          {results && results.map(movie => <Col key={movie.id}><MovieItem movie={movie} /></Col>)}
         </Row>
       </ContentWithHeader>
     );
