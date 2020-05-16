@@ -8,4 +8,8 @@ export interface IUserData {
   seen: IMovie[];
   watch: IMovie[];
   recommended: IMovie[];
+  // eslint-disable-next-line camelcase
+  recommended_movies: IMovie[];
+  // eslint-disable-next-line camelcase
+  recommended_tv: IMovie[];
 }
