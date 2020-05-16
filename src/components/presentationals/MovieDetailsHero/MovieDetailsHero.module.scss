@@ -52,3 +52,11 @@
     font-size: 48px;
   }
 }
+
+:global {
+  .anchor-details {
+    background-color: transparent;
+    color: #fff;
+    display: block;
+  }
+}
