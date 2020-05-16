@@ -8,3 +8,5 @@ interface Window {
 declare interface System {
   import<T = any>(module: string): Promise<T>
 }
+
+declare module 'react-show-more-text';

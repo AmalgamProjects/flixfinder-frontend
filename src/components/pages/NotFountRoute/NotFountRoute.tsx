@@ -3,7 +3,7 @@ import { Layout } from '../../containers';
 
 const NotFountRoute: React.FC = () => (
   <Layout>
-    404 We couldn't find this page.
+    <h1>404 We couldn't find this page.</h1>
   </Layout>
 );
 
