@@ -12,10 +12,11 @@ interface IOwnProps {
 const Review: React.FC<IOwnProps> = ({ rating, content, author }) => (
   <div className={Styles.wrapper}>
     <div className={Styles.rating}>
-      <p className={Styles.text}><
-        span className={Styles.icon}>{ratings}</span>
-        {rating}
-      </p>
+      {rating &&
+        <p className={Styles.text}><
+          span className={Styles.icon}>{ratings}</span>
+          {rating}
+        </p>}
     </div>
     <div className={Styles.review}>
       <div className={Styles.text}>
