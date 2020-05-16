@@ -34,10 +34,7 @@ class MovieHero extends Component<Props> {
   componentDidMount() {
     const { onLoadData, movieId, movie } = this.props;
 
-    console.log('did mount');
-
     if (!movie && movieId) {
-      console.log('load pick');
       onLoadData({ id: movieId });
     }
   }

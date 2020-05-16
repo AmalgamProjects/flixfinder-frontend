@@ -5,7 +5,7 @@ import Styles from './TileButton.module.scss';
 interface IOwnProps {
   icon: any;
   label: string;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   expanded?: boolean;
   isLoading?: boolean;
 }

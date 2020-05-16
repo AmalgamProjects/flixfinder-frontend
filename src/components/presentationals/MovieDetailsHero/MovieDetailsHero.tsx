@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
+import ShowMoreText from 'react-show-more-text';
 import cx from 'classnames';
 import { ratings } from '../../../assets/icons';
 import Styles from './MovieDetailsHero.module.scss';
-import { Link } from 'react-router-dom';
 
 interface IOwnProps {
   isSingleMovie?: boolean;
@@ -29,11 +30,14 @@ const MovieDetailsHero: React.SFC<IOwnProps> = ({ writer, starring, director, is
 
   return (
     <div>
-      {!url ?
+      {!url && (
         <h2 className={titleClassNames}>{title}</h2>
-        : <Link className={Styles.link} to={url}>
+      )}
+      {url && (
+        <Link className={Styles.link} to={url}>
           <h2 className={titleClassNames}>{title}</h2>
-        </Link>}
+        </Link>
+      )}
       <div className={Styles.moreDetails}>
         <div className={Styles.textWrapper}>
           {details && <p className={textClassNames}>{details}</p>}
@@ -49,7 +53,18 @@ const MovieDetailsHero: React.SFC<IOwnProps> = ({ writer, starring, director, is
         </div>
       </div>
       <div className={Styles.textWrapper}>
-        {summary && <p className={textClassNames}>{summary}</p>}
+        {summary && (
+          <div className={textClassNames}>
+            <ShowMoreText
+              lines={4}
+              more='Show more'
+              less='Show less'
+              anchorClass="anchor-details"
+            >
+              {summary}
+            </ShowMoreText>
+          </div>
+        )}
       </div>
       {director && <p className={textClassNames}><span className={Styles.textBold}>Director:</span> {director}</p>}
       {writer && <p className={textClassNames}><span className={Styles.textBold}>Writer:</span> {writer}</p>}

@@ -7,6 +7,7 @@ import { ISearchResponse } from '../types/search';
 export interface ISearchParams {
   search: string;
   titleType?: string;
+  onlytitles?: boolean;
 }
 
 export interface IFetchSearch {
