@@ -50,7 +50,7 @@ class MovieHero extends Component<Props> {
       isMarkAsWatchedLoading,
     } = this.props;
 
-    const { image_url, poster_url, averageRating, genres, primaryTitle, runtimeMinutes, startYear, summary, backdrop_url } = movie;
+    const { image_url, poster_url, averageRating, genres, primaryTitle, runtimeMinutes, startYear, summary, backdrop_url, principals } = movie;
 
     const wrapperClassNames = cx({
       [Styles.wrapper]: true,
@@ -80,6 +80,16 @@ class MovieHero extends Component<Props> {
       }
 
       return `${runtimeMinutes && `${runtimeMinutes}min |`} ${formattedGenres && `${formattedGenres} |`} ${startYear && `${startYear}`}`;
+    }
+
+    const getMovieActors = () => {
+      const formattedActors = principals && principals.map((actor => actor.primaryName)).join(', ');
+
+      if (!principals) {
+        return undefined;
+      }
+
+      return formattedActors;
     }
 
     return (
@@ -113,9 +123,7 @@ class MovieHero extends Component<Props> {
                   title={primaryTitle}
                   details={getMovieDetails()}
                   isSingleMovie={isSingleMovie}
-                  // director={'directors'}
-                  // starring={'starring'}
-                  // writer={'writer'}
+                  starring={getMovieActors()}
                   rating={averageRating}
                   summary={summary}
                 />
