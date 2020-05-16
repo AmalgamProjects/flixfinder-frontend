@@ -29,7 +29,7 @@ const Slider: React.FC<IOwnProps> = ({ picks }) => {
         autoPlay={5000}
         animationSpeed={800}
       >
-        {picks.map(pick => <MovieHero key={pick.id} movie={pick} />)}
+        {picks.map(pick => <MovieHero key={pick.id} url={`/movie/${pick.title}`} movie={pick} />)}
       </Carousel>
     </div>
   );
