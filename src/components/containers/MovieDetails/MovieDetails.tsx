@@ -6,8 +6,8 @@ import { loadData, clearStore } from './actions';
 import { IMovieDetailsState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { IFirebaseUser } from '../../../types/user';
-import { ContentWithHeader, Person, Review, YoutubeVideo, Spinner } from '../../presentationals';
-import { Container, Row, Col, MovieItem, MovieHero } from '..';
+import { ContentWithHeader, Person, YoutubeVideo, Spinner } from '../../presentationals';
+import { Container, Row, Col, Reviews, MovieHero, MoreLikeThis } from '..';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
 import { IFetchMovieDetailsParams } from '../../../api/movies';
@@ -25,7 +25,7 @@ interface IConnectedDispatchProps {
   onAddToWatchList: typeof addToWatchlist;
   onMarkAsWatched: typeof markAsWatched;
 }
-type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps;
+type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps & RouteComponentProps<{ id: string }>;
 
 class MovieDetails extends Component<Props> {
   componentDidMount() {
@@ -60,6 +60,7 @@ class MovieDetails extends Component<Props> {
   }
 
   render() {
+    const { match } = this.props;
     const { state: { movie, isLoading }, user } = this.props;
 
     return (
@@ -114,33 +115,9 @@ class MovieDetails extends Component<Props> {
                 </div>
               </ContentWithHeader>
 
-              <ContentWithHeader heading="Reviews">
-                <div className={Styles.review}>
-                  <Review
-                    rating="8.9/10"
-                    review="Cinematography - great, acting - great. Music- reused already written works. Plot - none. Just almost 3+ hours worth of some random scenes stiched together without leading anywhere. Watched it twice. Has not changed my opinion. By the time it ended I did not care anymore, I just wanted to pee!!! After sitting there for almost 3 hours. What was the point of this movie? Still wondering. One of the Tarantino's worst (if not worst!)."
-                    user="carlvan1977 - 27 July 2019"
-                  />
-                </div>
-                <div className={Styles.review}>
-                  <Review
-                    rating="8.9/10"
-                    review="The first 2 hours is only for lovers of everything late 60s retro, great cinematography and outstanding acting. The last 45 minutes fasten your seatbelts because classic Tarantino kicks in."
-                    user="carlvan1977 - 27 July 2019"
-                  />
-                </div>
-              </ContentWithHeader>
+              <Reviews movieId={match.params.id} />
 
-              <ContentWithHeader heading="More Like This">
-                <Row>
-                  <Col><MovieItem movie={undefined} /></Col>
-                  <Col><MovieItem movie={undefined} /></Col>
-                  <Col><MovieItem movie={undefined} /></Col>
-                  <Col><MovieItem movie={undefined} /></Col>
-                  <Col><MovieItem movie={undefined} /></Col>
-                  <Col><MovieItem movie={undefined} /></Col>
-                </Row>
-              </ContentWithHeader>
+              <MoreLikeThis movieId={match.params.id} />
 
             </div>
           </Container>

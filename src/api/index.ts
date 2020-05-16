@@ -2,6 +2,8 @@ import axios from 'axios';
 import { IApi } from '../types/api';
 import { fetchMovies, fetchMovieDetails } from './movies';
 import { search } from './search';
+import { fetchMoreLikeThis } from './moreLikeThis';
+import { fetchReviews } from './reviews';
 import { fetchUserData, addToWatchList, markAsWatched } from './userData';
 
 const cancelToken = axios.CancelToken;
@@ -21,6 +23,10 @@ class Api implements IApi {
   markAsWatched = markAsWatched;
 
   search = search;
+
+  fetchMoreLikeThis = fetchMoreLikeThis;
+
+  fetchReviews = fetchReviews;
 }
 
 export default Api;

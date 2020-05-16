@@ -66,7 +66,7 @@ class MovieItem extends Component<Props> {
               />
             </span>
           )}
-          <Link className={Styles.link} to={`/movie/${movie.title}`}>
+          <Link className={Styles.link} to={`/movie/${movie.title || movie.id}`}>
             <img className={Styles.cover} src={movieCover} alt={movie.primaryTitle || movie.title} />
           </Link>
         </span>

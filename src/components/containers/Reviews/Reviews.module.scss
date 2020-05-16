@@ -1,0 +1,9 @@
+.review {
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ebebeb;
+  margin-bottom: 40px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
