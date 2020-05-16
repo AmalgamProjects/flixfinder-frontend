@@ -1,11 +1,11 @@
 import { ILoadSearchSuccessAction, ActionTypes } from '../actions';
 import { createReducer } from '../../../../helpers/reducer';
-import { ISearchResponse } from '../../../../types/search';
 import { IBaseAction } from '../../../../types/redux';
+import { IMovie } from '../../../../types/movie';
 
 export type ISearchState = {
   count: number;
-  results: ISearchResponse[];
+  results: IMovie[];
   isLoading: boolean;
 }
 
