@@ -50,7 +50,7 @@ class MovieHero extends Component<Props> {
       isMarkAsWatchedLoading,
     } = this.props;
 
-    const { image_url, poster_url, averageRating, genres, primaryTitle, runtimeMinutes, startYear, summary } = movie;
+    const { image_url, poster_url, averageRating, genres, primaryTitle, runtimeMinutes, startYear, summary, backdrop_url } = movie;
 
     const wrapperClassNames = cx({
       [Styles.wrapper]: true,
@@ -83,7 +83,7 @@ class MovieHero extends Component<Props> {
     }
 
     return (
-      <div className={wrapperClassNames} style={{ backgroundImage: `url(${image_url})` }}>
+      <div className={wrapperClassNames} style={{ backgroundImage: `url(${isSingleMovie ? image_url : backdrop_url})` }}>
         <div className={innerWrapperClassNames}>
           <Container>
             <div className={contentClassNames}>
