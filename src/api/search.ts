@@ -26,7 +26,11 @@ export const search = (params: ISearchParams) => {
       {
         baseURL,
         method: 'GET',
-        params,
+        params: {
+          search: params.search,
+          ...params.titleType && { titleType: params.titleType },
+          ...params.onlytitles && { onlytitles: params.onlytitles },
+        },
         headers: {
           ...accessToken && { Authorization: `Bearer ${accessToken}` },
         },

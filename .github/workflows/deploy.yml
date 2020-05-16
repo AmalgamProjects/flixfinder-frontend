@@ -54,6 +54,7 @@ jobs:
         REACT_APP_FIREBASE_MESSAGING_SENDER_ID: 448246272078
         REACT_APP_FIREBASE_PROJECT_ID: flixfinder-develop
         REACT_APP_FIREBASE_STORAGE_BUCKET: flixfinder-develop.appspot.com
+        REACT_APP_FIREBASE_MEASURMENT_ID: G-9VP01NDSXJ
       run: |
         yarn build
         rm -rf ${WORKSPACE}/deploy/static-develop/

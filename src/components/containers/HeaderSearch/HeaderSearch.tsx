@@ -61,16 +61,26 @@ class HeaderSearch extends Component<Props, IState> {
   };
 
   handleClear = () => {
-    const { onClearSuggestions, onClearStore } = this.props;
-    onClearSuggestions();
-    onClearStore();
+    // const { onClearSuggestions, onClearStore } = this.props;
+    // onClearSuggestions();
+    // onClearStore();
   };
 
-  onChange = (_event: FormEvent<any>, { newValue }: { newValue: string }) => {
+  onChange = (_event: FormEvent<any>, { newValue }: { newValue: string; }) => {
     this.setState({
       value: newValue,
     });
   };
+
+  handleKeyDown = (event: FormEvent<KeyboardEvent>) => {
+    const { history } = this.props;
+    const { value } = this.state;
+
+    // @ts-ignore
+    if (event.key === 'Enter') {
+      history.push(`/search/${value}`);
+    }
+  }
 
   handleTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { onClearSuggestions } = this.props;
@@ -92,6 +102,7 @@ class HeaderSearch extends Component<Props, IState> {
       placeholder: 'Type movie title, e.g. Harry Potter',
       value,
       onChange: this.onChange,
+      onKeyDown: this.handleKeyDown,
     };
 
     return (
