@@ -1,0 +1,39 @@
+.wrapper {
+  width: 100%;
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.innerLink {
+  position: relative;
+  display: block;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -0.35px;
+  color: #000;
+}
+
+.buttonTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.buttonBottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}

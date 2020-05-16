@@ -1,13 +1,41 @@
 {
-  "name": "github-actions-demo",
+  "name": "flixfinder-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "@brainhubeu/react-carousel": "1.13.47",
+    "@react-firebase/auth": "0.2.10",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.3.2",
+    "@testing-library/user-event": "7.1.2",
+    "@types/classnames": "2.2.10",
+    "@types/jest": "24.0.0",
+    "@types/node": "12.0.0",
+    "@types/react": "16.9.0",
+    "@types/react-autosuggest": "9.3.13",
+    "@types/react-dom": "16.9.0",
+    "@types/react-redux": "7.1.8",
+    "@types/react-router-dom": "5.1.5",
+    "@types/socket.io-client": "1.4.32",
+    "axios": "0.19.2",
+    "classnames": "2.2.6",
+    "eslint-config-airbnb-base": "14.1.0",
+    "firebase": "7.14.3",
+    "node-sass": "4.14.1",
+    "react": "16.13.1",
+    "react-autosuggest": "10.0.2",
+    "react-dom": "16.13.1",
+    "react-hook-form": "5.6.1",
+    "react-redux": "7.2.0",
+    "react-router-dom": "5.1.2",
+    "react-scripts": "3.4.1",
+    "react-show-more-text": "1.4.2",
+    "redux-devtools-extension": "2.13.8",
+    "redux-persist": "6.0.0",
+    "redux-saga": "1.1.3",
+    "socket.io-client": "2.3.0",
+    "typescript": "~3.7.2"
   },
-  "homepage": "https://ruanyf.github.io/github-actions-demo",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -15,7 +43,107 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "eslint-config-airbnb-base"
+    ],
+    "rules": {
+      "max-len": [
+        2,
+        {
+          "code": 120,
+          "ignoreUrls": true,
+          "ignorePattern": "^import\\s.+\\sfrom\\s.+;$"
+        }
+      ],
+      "camelcase": [
+        "error",
+        {
+          "ignoreDestructuring": true,
+          "properties": "never"
+        }
+      ],
+      "quotes": [
+        2,
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "newline-per-chained-call": [
+        "error",
+        {
+          "ignoreChainWithDepth": 5
+        }
+      ],
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "object-curly-newline": [
+        "off",
+        {
+          "ObjectExpression": {
+            "multiline": true,
+            "minProperties": 5
+          },
+          "ObjectPattern": {
+            "multiline": true,
+            "minProperties": 5
+          },
+          "ImportDeclaration": {
+            "multiline": true,
+            "minProperties": 6
+          },
+          "ExportDeclaration": {
+            "multiline": true,
+            "minProperties": 5
+          }
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "import/no-extraneous-dependencies": "off",
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".tsx",
+            ".jsx"
+          ]
+        }
+      ],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx",
+            ".json"
+          ]
+        }
+      }
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {}
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -28,5 +156,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/brainhubeu__react-carousel": "1.13.1"
   }
 }

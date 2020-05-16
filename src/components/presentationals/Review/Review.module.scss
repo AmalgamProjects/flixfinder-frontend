@@ -1,0 +1,54 @@
+.text {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.4px;
+  color: #636363;
+  word-break: break-word;
+  white-space: break-spaces;
+
+  & .icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+}
+
+.textSmall {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #636363;
+}
+
+.rating {
+  margin-bottom: 10px;
+}
+
+.review {
+  margin-bottom: 10px;
+}
+
+:global {
+  .anchor {
+    display: block;
+    color: #00acff;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #fff;
+    padding-top: 5px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -20px;
+      width: 20px;
+      height: 100%;
+      background: linear-gradient(to right, transparent 0, #fff 100%);
+    }
+  }
+}

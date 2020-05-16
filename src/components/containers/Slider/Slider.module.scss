@@ -1,0 +1,41 @@
+.arrowLeft {
+  position: absolute;
+  left: 38px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.arrowRight {
+  position: absolute;
+  right: 38px;
+  z-index: 1;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: -1.2px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  top: 57px;
+  left: 0;
+  right: 0;
+  padding-left: 90px;
+
+  @media (min-width: 1360px) {
+    padding-left: 0;
+  }
+}

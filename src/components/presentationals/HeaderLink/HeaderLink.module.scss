@@ -1,0 +1,50 @@
+.wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-content: center;
+
+  &:last-of-type {
+    margin-left: 10px;
+
+    @media (min-width: 970px) {
+      margin-left: 27px;
+    }
+  }
+
+  & a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &Current::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 1;
+    background: #db071a;
+  }
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: -0.4px;
+  color: #000;
+  text-transform: capitalize;
+  display: none;
+
+  @media (min-width: 970px) {
+    display: block;
+  }
+}
+
+.icon {
+  margin-right: 5px;
+  display: flex;
+}

@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  line-height: 1;
+  font-weight: bold;
+  color: #000;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    margin-right: 18px;
+    width: 4px;
+    height: 100%;
+    background-color: #ffa300;
+  }
+
+  &Small {
+    font-size: 32px;
+    letter-spacing: -0.8px;
+
+    @media (max-width: 425px) {
+      font-size: 27px;
+    }
+  }
+
+  &Big {
+    font-size: 48px;
+    letter-spacing: -1.2px;
+
+    @media (max-width: 425px) {
+      font-size: 30px;
+    }
+  }
+}

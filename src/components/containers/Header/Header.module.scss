@@ -1,0 +1,41 @@
+.wrapper {
+  background-color: #fff;
+  color: black;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  padding: 15px 0;
+
+  @media (min-width: 970px) {
+    padding: 0;
+  }
+}
+
+.logo {
+  width: 48px;
+
+  @media (min-width: 970px) {
+    width: 153px;
+  }
+}
+
+.innerContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.headerLinks {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.search {
+  max-width: 570px;
+  width: 100%;
+  padding: 0 15px;
+}
+
