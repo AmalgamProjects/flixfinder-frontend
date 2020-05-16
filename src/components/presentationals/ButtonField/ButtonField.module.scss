@@ -9,7 +9,7 @@
   border: none;
   margin: 0;
   padding: 15px;
-  width: 378px;
+  max-width: 378px;
   border-radius: 25px;
   cursor: pointer;
   text-transform: uppercase;
@@ -17,6 +17,10 @@
   font-weight: bold;
   letter-spacing: -0.4px;
   text-align: center;
+
+  @media (min-width: 815px) {
+    max-width: 100%;
+  }
 }
 
 .small {

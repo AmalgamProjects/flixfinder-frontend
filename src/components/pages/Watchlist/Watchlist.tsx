@@ -29,17 +29,17 @@ class Watchlist extends Component {
             <div className={Styles.content}>
               <ul className={Styles.tabTitles}>
                 {tabTitles.map((item) => {
-                  const tabTitleClassNames = cx({
-                    [Styles.tabTitle]: true,
-                    [Styles.tabTitleCurrent]: item.id === selectedIndex,
+                  const tabTextClassNames = cx({
+                    [Styles.tabText]: true,
+                    [Styles.tabTextCurrent]: item.id === selectedIndex,
                   });
 
                   return (
                     <li
                       key={item.id}
-                      className={tabTitleClassNames}
+                      className={Styles.tabTitle}
                       onClick={() => this.handleTabTitlClick(item.id)}>
-                      {item.title}
+                      <span className={tabTextClassNames}>{item.title}</span>
                     </li>
                   );
                 })}
