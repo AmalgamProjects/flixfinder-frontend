@@ -38,24 +38,6 @@ export const fetchMovies = (params: IFetchMoviesParams) => {
   });
 
   return promise;
-
-  /* return axios
-    .request<IFetchMoviesResponse>(
-      {
-        baseURL: settings.apiUrl,
-        method: 'GET',
-        headers: {
-          ...accessToken && { Authorization: `Bearer ${accessToken}` },
-        },
-        // params,
-        url: '/fetchMovies',
-      },
-    )
-    .then(res => res.data)
-    .catch(error => {
-      console.error('error: ', error);
-      return null;
-    }); */
 };
 
 export const fetchMovieDetails = (params: IFetchMovieDetailsParams) => {
@@ -69,7 +51,6 @@ export const fetchMovieDetails = (params: IFetchMovieDetailsParams) => {
         headers: {
           ...accessToken && { Authorization: `Bearer ${accessToken}` },
         },
-        // params,
         url: `/title/${params.id}`,
       },
     )
