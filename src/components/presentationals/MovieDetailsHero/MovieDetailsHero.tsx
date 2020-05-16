@@ -2,6 +2,7 @@ import * as React from 'react';
 import cx from 'classnames';
 import { ratings } from '../../../assets/icons';
 import Styles from './MovieDetailsHero.module.scss';
+import { Link } from 'react-router-dom';
 
 interface IOwnProps {
   isSingleMovie?: boolean;
@@ -12,9 +13,10 @@ interface IOwnProps {
   title: string;
   summary: string | null;
   rating?: string;
+  url?: string;
 }
 
-const MovieDetailsHero: React.SFC<IOwnProps> = ({ writer, starring, director, isSingleMovie, details, title, rating, summary }) => {
+const MovieDetailsHero: React.SFC<IOwnProps> = ({ writer, starring, director, isSingleMovie, details, title, rating, summary, url }) => {
   const textClassNames = cx({
     [Styles.text]: true,
     [Styles.textSingleMovie]: isSingleMovie,
@@ -27,7 +29,11 @@ const MovieDetailsHero: React.SFC<IOwnProps> = ({ writer, starring, director, is
 
   return (
     <div>
-      <h2 className={titleClassNames}>{title}</h2>
+      {!url ?
+        <h2 className={titleClassNames}>{title}</h2>
+        : <Link className={Styles.link} to={url}>
+          <h2 className={titleClassNames}>{title}</h2>
+        </Link>}
       <div className={Styles.moreDetails}>
         <div className={Styles.textWrapper}>
           {details && <p className={textClassNames}>{details}</p>}

@@ -133,6 +133,7 @@ class MovieHero extends Component<Props> {
                   starring={getMovieActors()}
                   rating={averageRating}
                   summary={summary}
+                  url={url}
                 />
                 <div />
               </div>
