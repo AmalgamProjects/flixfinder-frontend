@@ -22,8 +22,12 @@ class MyProfile extends Component<Props> {
               <Heading title="My Profile" size="big" />
               <div className={Styles.panel}>
                 <div>
-                  <h2 className={Styles.subHeading}><span className={Styles.icon}>{envelope}</span>Linked Email Account</h2>
-                  {state && state.user && state.user.email && <p className={Styles.email}>{state.user.email}</p>}
+                  <h2 className={Styles.subHeading}>
+                    <span className={Styles.icon}>{envelope}</span>Linked Email Account
+                  </h2>
+                  {state && state.user && state.user.email && (
+                    <p className={Styles.email}>{state.user.email}</p>
+                  )}
                 </div>
                 <Auth />
               </div>
@@ -31,7 +35,7 @@ class MyProfile extends Component<Props> {
           </Container>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
