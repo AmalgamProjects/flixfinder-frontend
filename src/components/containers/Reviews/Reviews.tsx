@@ -36,11 +36,11 @@ class Reviews extends Component<Props> {
 
     return (
       <ContentWithHeader heading="Reviews">
-        {results && results.map(review => {
+        {results && results.map((review, index) => {
           const { rating, content, author } = review;
 
           return (
-            <div className={Styles.review}>
+            <div key={index} className={Styles.review}>
               <Review
                 rating={rating}
                 content={content}
