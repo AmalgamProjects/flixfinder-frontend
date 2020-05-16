@@ -32,10 +32,12 @@
 
 :global {
   .anchor {
+    display: block;
     color: #00acff;
     text-decoration: none;
     cursor: pointer;
     background-color: #fff;
+    padding-top: 5px;
 
     &:before {
       content: '';
