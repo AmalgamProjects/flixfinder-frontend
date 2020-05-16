@@ -25,15 +25,19 @@ interface IConnectedDispatchProps {
 type Props = IOwnProps & IConnectedProps & IConnectedDispatchProps;
 
 class MovieItem extends Component<Props> {
-  handleAddToWatchlist = () => {
+  handleAddToWatchlist = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     const { movie, onAddToWatchList, user } = this.props;
+
     if (movie) {
       onAddToWatchList({ title: movie.title, user: user.username });
     }
   };
 
-  handleMarkAsWatched = () => {
+  handleMarkAsWatched = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
     const { movie, onMarkAsWatched, user } = this.props;
+
     if (movie) {
       onMarkAsWatched({ title: movie.title, user: user.username });
     }
