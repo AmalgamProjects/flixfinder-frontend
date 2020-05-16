@@ -6,8 +6,8 @@ import { loadData, clearStore } from './actions';
 import { IMovieDetailsState } from './reducers';
 import { IRootState } from '../../../types/redux';
 import { IFirebaseUser } from '../../../types/user';
-import { ContentWithHeader, Person, Review, FullWidthMovie, YoutubeVideo, Spinner } from '../../presentationals';
-import { Container, Row, Col, MovieItem } from '..';
+import { ContentWithHeader, Person, Review, YoutubeVideo, Spinner } from '../../presentationals';
+import { Container, Row, Col, MovieItem, MovieHero } from '..';
 import { addToWatchlist, markAsWatched } from '../../../redux/userData/actions';
 import { IAddToWatchlistParams, IMarkAsWatchedParams } from '../../../api/userData';
 import { IFetchMovieDetailsParams } from '../../../api/movies';
@@ -71,7 +71,7 @@ class MovieDetails extends Component<Props> {
             </div>
           )}
           {movie && (
-            <FullWidthMovie
+            <MovieHero
               isSingleMovie
               isAddToWatchlistLoading={user.isAddToWatchlistLoading}
               isMarkAsWatchedLoading={user.isMarkAsWatchedLoading}
